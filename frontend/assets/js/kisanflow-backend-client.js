@@ -6,9 +6,7 @@
 (function () {
   console.log("🌾 KisanFlow AI Backend Client Initializing...");
 
-  const API_BASE = window.location.origin.startsWith('http') 
-    ? window.location.origin 
-    : 'http://localhost:3000';
+  const API_BASE = 'https://krishnex-backend.onrender.com';
 
   window.KisanFlowAPI = {
     apiBase: API_BASE,
@@ -158,3 +156,4 @@
     initSocketClient();
   }
 })();
+
