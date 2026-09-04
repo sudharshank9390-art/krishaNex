@@ -1,0 +1,229 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String           @id @default(cuid())
+  name            String
+  email           String           @unique
+  passwordHash    String
+  role            String           @default("FARMER")
+  phone           String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  farmerProfile   FarmerProfile?
+  operatedMandi   Mandi?           @relation("MandiOperators", fields: [mandiId], references: [id])
+  mandiId         String?
+  harvests        Harvest[]
+  bookings        Booking[]
+  notifications   Notification[]
+  auditLogs       AuditLog[]
+  refreshTokens   RefreshToken[]
+  weighments      Weighment[]
+  qualityTests    QualityTest[]
+  procurements    Procurement[]
+}
+
+model FarmerProfile {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  village        String?
+  district       String?
+  state          String?
+  landSizeAcres  Float?
+  bankName       String?
+  accountLast4   String?
+  ifsc           String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Mandi {
+  id                   String          @id @default(cuid())
+  name                 String
+  code                 String          @unique
+  district             String
+  state                String
+  capacityTons         Float
+  currentOccupancyTons Float           @default(0)
+  waitMins             Int             @default(0)
+  status               String          @default("OPERATIONAL")
+  createdAt            DateTime        @default(now())
+  updatedAt            DateTime        @updatedAt
+  operators            User[]          @relation("MandiOperators")
+  bookings             Booking[]
+  queue                MandiQueue[]
+}
+
+model Crop {
+  id        String    @id @default(cuid())
+  key       String    @unique
+  name      String
+  msp       Float
+  bonus     Float     @default(0)
+  category  String
+  createdAt DateTime  @default(now())
+  harvests  Harvest[]
+  bookings  Booking[]
+}
+
+model Harvest {
+  id             String    @id @default(cuid())
+  farmerId       String
+  cropId         String
+  quantityQuintals Float
+  expectedDate   DateTime
+  createdAt      DateTime  @default(now())
+  farmer         User      @relation(fields: [farmerId], references: [id], onDelete: Cascade)
+  crop           Crop      @relation(fields: [cropId], references: [id])
+  booking        Booking?
+  @@index([farmerId, expectedDate])
+}
+
+model Booking {
+  id             String       @id @default(cuid())
+  farmerId       String
+  harvestId      String       @unique
+  cropId         String
+  mandiId        String
+  arrivalDate    DateTime
+  slotTime       String
+  vehicleNo      String         @default("NOT-SET")
+  quantityQuintals Float
+  createdAt      DateTime     @default(now())
+  farmer         User         @relation(fields: [farmerId], references: [id], onDelete: Cascade)
+  harvest        Harvest      @relation(fields: [harvestId], references: [id])
+  crop           Crop         @relation(fields: [cropId], references: [id])
+  mandi          Mandi        @relation(fields: [mandiId], references: [id])
+  token          Token?
+  queueEntry     MandiQueue?
+  @@index([mandiId, arrivalDate])
+}
+
+model Token {
+  id          String      @id @default(cuid())
+  tokenNumber String      @unique
+  bookingId   String      @unique
+  status      String      @default("GENERATED")
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  booking     Booking     @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  weighment   Weighment?
+  qualityTest QualityTest?
+  procurement Procurement?
+  payment     Payment?
+  @@index([status])
+}
+
+model Weighment {
+  id           String   @id @default(cuid())
+  tokenId      String   @unique
+  operatorId   String
+  grossKg      Float
+  tareKg       Float
+  netKg        Float
+  recordedAt   DateTime @default(now())
+  token        Token    @relation(fields: [tokenId], references: [id], onDelete: Cascade)
+  operator     User     @relation(fields: [operatorId], references: [id])
+}
+
+model QualityTest {
+  id             String       @id @default(cuid())
+  tokenId        String       @unique
+  testerId        String
+  moisturePercent Float
+  grade          String
+  recordedAt     DateTime     @default(now())
+  token          Token        @relation(fields: [tokenId], references: [id], onDelete: Cascade)
+  tester         User         @relation(fields: [testerId], references: [id])
+}
+
+model Procurement {
+  id          String   @id @default(cuid())
+  tokenId     String   @unique
+  operatorId  String
+  amount      Float
+  approvedAt  DateTime @default(now())
+  token       Token    @relation(fields: [tokenId], references: [id], onDelete: Cascade)
+  operator    User     @relation(fields: [operatorId], references: [id])
+}
+
+model Payment {
+  id          String        @id @default(cuid())
+  tokenId     String        @unique
+  amount      Float
+  status      String        @default("PENDING")
+  reference   String?
+  paidAt      DateTime?
+  createdAt   DateTime      @default(now())
+  token       Token         @relation(fields: [tokenId], references: [id], onDelete: Cascade)
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  readAt    DateTime?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId, readAt])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  action    String
+  entity    String
+  entityId  String?
+  metadata  String?
+  createdAt DateTime @default(now())
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  @@index([entity, createdAt])
+}
+
+model MandiQueue {
+  id         String   @id @default(cuid())
+  mandiId    String
+  bookingId  String   @unique
+  position   Int
+  joinedAt   DateTime @default(now())
+  mandi      Mandi    @relation(fields: [mandiId], references: [id], onDelete: Cascade)
+  booking    Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  @@index([mandiId, position])
+}
+
+model GovernmentMetric {
+  id             String   @id @default(cuid())
+  metricDate     DateTime
+  registeredFarmers Int
+  activeBookings Int
+  procuredTons   Float
+  paymentsAmount Float
+  activeMandis   Int
+  createdAt      DateTime @default(now())
+  @@unique([metricDate])
+}
+
+model SystemConfiguration {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId, expiresAt])
+}

@@ -1,0 +1,26 @@
+import { Router } from 'express';
+import type { NextFunction, Request, RequestHandler, Response } from 'express';
+import { z } from 'zod';
+import { authenticateUser, authorizeRoles } from '../middleware/auth.js';
+import { prisma } from '../lib/prisma.js';
+
+const adminOnly: RequestHandler[] = [authenticateUser, authorizeRoles('SUPER_ADMIN')];
+const roleSchema = z.object({ role: z.enum(['FARMER', 'MANDI_OPERATOR', 'GOVERNMENT_ADMIN', 'SUPER_ADMIN']) });
+const mandiSchema = z.object({ name: z.string().trim().min(2), code: z.string().trim().min(2).max(30), district: z.string().trim().min(2), state: z.string().trim().min(2), capacityTons: z.coerce.number().positive(), status: z.enum(['OPERATIONAL', 'HEAVY_QUEUE', 'OPTIMAL', 'CLOSED']).default('OPERATIONAL') });
+const cropSchema = z.object({ key: z.string().trim().min(2), name: z.string().trim().min(2), msp: z.coerce.number().nonnegative(), bonus: z.coerce.number().nonnegative().default(0), category: z.string().trim().min(2) });
+const configSchema = z.object({ value: z.string().max(500) });
+export const adminRouter = Router();
+
+adminRouter.get('/users', ...adminOnly, async (_req: Request, res: Response, next: NextFunction) => { try { const users = await prisma.user.findMany({ select: { id: true, name: true, email: true, role: true, phone: true, createdAt: true, operatedMandi: { select: { id: true, name: true } } }, orderBy: { createdAt: 'desc' } }); res.json({ success: true, data: users }); } catch (error) { next(error); } });
+
+adminRouter.patch('/users/:id', ...adminOnly, async (req: Request, res: Response, next: NextFunction) => { try { const { role } = roleSchema.parse(req.body); const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id; if (id === req.userId && role !== 'SUPER_ADMIN') return res.status(400).json({ success: false, error: 'You cannot remove your own super-admin access' }); const user = await prisma.user.update({ where: { id }, data: { role } }); await prisma.auditLog.create({ data: { userId: req.userId, action: 'USER_ROLE_UPDATED', entity: 'User', entityId: id, metadata: JSON.stringify({ role }) } }); res.json({ success: true, data: { id: user.id, role: user.role } }); } catch (error) { next(error); } });
+
+adminRouter.get('/mandis', ...adminOnly, async (_req: Request, res: Response, next: NextFunction) => { try { res.json({ success: true, data: await prisma.mandi.findMany({ orderBy: { name: 'asc' } }) }); } catch (error) { next(error); } });
+adminRouter.post('/mandis', ...adminOnly, async (req: Request, res: Response, next: NextFunction) => { try { const input = mandiSchema.parse(req.body); const mandi = await prisma.mandi.create({ data: input }); res.status(201).json({ success: true, data: mandi }); } catch (error) { next(error); } });
+adminRouter.patch('/mandis/:id', ...adminOnly, async (req: Request, res: Response, next: NextFunction) => { try { const input = mandiSchema.partial().parse(req.body); const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id; const mandi = await prisma.mandi.update({ where: { id }, data: input }); res.json({ success: true, data: mandi }); } catch (error) { next(error); } });
+adminRouter.get('/crops', ...adminOnly, async (_req: Request, res: Response, next: NextFunction) => { try { res.json({ success: true, data: await prisma.crop.findMany({ orderBy: { name: 'asc' } }) }); } catch (error) { next(error); } });
+adminRouter.post('/crops', ...adminOnly, async (req: Request, res: Response, next: NextFunction) => { try { const crop = await prisma.crop.create({ data: cropSchema.parse(req.body) }); res.status(201).json({ success: true, data: crop }); } catch (error) { next(error); } });
+adminRouter.patch('/crops/:id', ...adminOnly, async (req: Request, res: Response, next: NextFunction) => { try { const input = cropSchema.partial().parse(req.body); const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id; const crop = await prisma.crop.update({ where: { id }, data: input }); res.json({ success: true, data: crop }); } catch (error) { next(error); } });
+adminRouter.get('/audit-logs', ...adminOnly, async (_req: Request, res: Response, next: NextFunction) => { try { res.json({ success: true, data: await prisma.auditLog.findMany({ include: { user: { select: { name: true, email: true } } }, orderBy: { createdAt: 'desc' }, take: 100 }) }); } catch (error) { next(error); } });
+adminRouter.get('/settings', ...adminOnly, async (_req: Request, res: Response, next: NextFunction) => { try { res.json({ success: true, data: await prisma.systemConfiguration.findMany({ orderBy: { key: 'asc' } }) }); } catch (error) { next(error); } });
+adminRouter.put('/settings/:key', ...adminOnly, async (req: Request, res: Response, next: NextFunction) => { try { const key = Array.isArray(req.params.key) ? req.params.key[0] : req.params.key; const setting = await prisma.systemConfiguration.upsert({ where: { key }, update: configSchema.parse(req.body), create: { key, ...configSchema.parse(req.body) } }); res.json({ success: true, data: setting }); } catch (error) { next(error); } });

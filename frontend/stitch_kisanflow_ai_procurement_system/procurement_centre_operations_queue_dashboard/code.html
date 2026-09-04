@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=publicSans:wght@100..900&family=spaceGrotesk:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-surface":"#131b2e","on-secondary-fixed":"#002109","on-surface-variant":"#3f493f","surface-tint":"#006d30","primary-fixed":"#95f8a7","error":"#ba1a1a","surface-container-low":"#f2f3ff","on-tertiary-container":"#eaf4ff","on-background":"#131b2e","inverse-surface":"#283044","secondary":"#006e2f","tertiary":"#005c85","tertiary-fixed":"#c9e6ff","on-error-container":"#93000a","surface-container-high":"#e2e7ff","on-primary-fixed":"#00210a","outline-variant":"#becabc","primary-container":"#15803d","surface":"#faf8ff","on-tertiary-fixed":"#001e2f","surface-variant":"#dae2fd","surface-bright":"#faf8ff","on-tertiary":"#ffffff","on-primary":"#ffffff","on-secondary-fixed-variant":"#005321","error-container":"#ffdad6","outline":"#6f7a6e","surface-container":"#eaedff","secondary-fixed-dim":"#4ae176","primary":"#00652c","inverse-primary":"#79db8d","inverse-on-surface":"#eef0ff","secondary-fixed":"#6bff8f","on-error":"#ffffff","on-primary-container":"#d3ffd5","on-secondary":"#ffffff","tertiary-container":"#0076a9","secondary-container":"#6bff8f","surface-container-highest":"#dae2fd","background":"#faf8ff","on-tertiary-fixed-variant":"#004c6e","surface-dim":"#d2d9f4","tertiary-fixed-dim":"#89ceff","primary-fixed-dim":"#79db8d","on-primary-fixed-variant":"#005323","on-secondary-container":"#007432","surface-container-lowest":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-3xl":"4rem","gutter-desktop":"1.5rem","gutter-mobile":"1rem","margin-tablet":"2rem","space-lg":"1.5rem","space-md":"1rem","space-xs":"0.5rem","space-2xs":"0.25rem","gutter-tablet":"1.5rem","margin-desktop":"3rem","margin-mobile":"1rem","space-sm":"0.75rem","space-2xl":"3rem","space-xl":"2rem"},"fontFamily":{"body-md":["publicSans"],"headline-sm":["publicSans"],"label-lg":["spaceGrotesk"],"headline-lg":["publicSans"],"headline-md":["publicSans"],"headline-xl-mobile":["publicSans"],"label-sm":["spaceGrotesk"],"label-md":["spaceGrotesk"],"headline-xl":["publicSans"],"body-lg":["publicSans"],"headline-lg-mobile":["publicSans"],"body-sm":["publicSans"]},"fontSize":{"body-md":["1rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"headline-sm":["1.25rem",{"lineHeight":"1.75rem","fontWeight":"600"}],"label-lg":["1rem",{"lineHeight":"1.5rem","fontWeight":"600"}],"headline-lg":["2.25rem",{"lineHeight":"2.75rem","fontWeight":"700"}],"headline-md":["1.5rem",{"lineHeight":"2rem","fontWeight":"600"}],"headline-xl-mobile":["2rem",{"lineHeight":"2.5rem","fontWeight":"700"}],"label-sm":["0.75rem",{"lineHeight":"1rem","fontWeight":"500"}],"label-md":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"500"}],"headline-xl":["3rem",{"lineHeight":"3.5rem","fontWeight":"700"}],"body-lg":["1.125rem",{"lineHeight":"1.75rem","fontWeight":"400"}],"headline-lg-mobile":["1.625rem",{"lineHeight":"2.125rem","fontWeight":"700"}],"body-sm":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-primary-container text-on-primary shadow-[0_1px_8px_rgba(0,0,0,0.06)]"><div class="w-full px-gutter-desktop h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-max"><img alt="KisanFlow AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UHBQemQgXsIP6WjXBc_VkZ_RDfCqH09FWC_npU7EFGMNuOtMBNOfx15iW6Wwq54w6r103yZqbtT9cDsJJ4tZYq3j84H1bY8Pp2_6DrF_r5rjM7aJ5XeB6h3NP--sTt5LE4vlRIpuojpl4riXp2-JnotasYcKfHLlFZdWo8z_VHZkmN1_-h3Ieg2r9slTgDOlwLUL1zNjgSQF-5LBBz-YYpriKh9jvVq36bXpDqOMj7Z3ByrO8qpL-m"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-sm tracking-tight text-on-primary">KisanFlow AI</span><span class="px-space-xs py-space-2xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">SIH 2026</span></div><span class="font-label-sm text-label-sm text-on-primary-container hidden sm:inline">KrishiNex Procurement & Queue Balancing Engine</span></div></div><div class="hidden xl:flex items-center gap-space-xs bg-primary/40 px-space-md py-space-xs rounded-lg"><span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span><span class="font-label-sm text-label-sm text-on-primary">Gov-Krishi Gateway: Online • AI Balancing Engine Active</span></div><nav class="flex items-center bg-primary/60 p-space-2xs rounded-xl" data-active-classes="bg-surface text-primary font-bold shadow-sm"><a class="px-space-md py-space-xs rounded-lg font-label-md text-label-md text-on-primary hover:text-on-primary transition-colors flex items-center gap-space-xs" data-path="farmer-portal" href="#">Farmer Portal</a><a aria-current="page" class="px-space-md py-space-xs rounded-lg transition-colors flex items-center gap-space-xs bg-surface text-primary font-bold shadow-sm" data-path="procurement-operations" href="#">Mandi Operations</a><a class="px-space-md py-space-xs rounded-lg font-label-md text-label-md text-on-primary hover:text-on-primary transition-colors flex items-center gap-space-xs" data-path="admin-command-center" href="#">Central Command</a></nav><div class="flex items-center gap-space-md min-w-max"><div class="hidden lg:flex items-center gap-space-xs bg-primary/40 px-space-sm py-space-xs rounded-lg font-label-sm text-label-sm text-on-primary"><span class="material-symbols-outlined text-sm">call</span><span>1800-KISAN-AI</span></div><div class="hidden md:flex items-center gap-space-2xs bg-primary/50 px-space-xs py-space-2xs rounded-lg"><span class="material-symbols-outlined text-sm text-on-primary-container">translate</span><select class="bg-transparent font-label-sm text-label-sm text-on-primary outline-none cursor-pointer pr-space-xs"><option class="text-on-surface bg-surface" value="en">English</option><option class="text-on-surface bg-surface" value="hi">Hindi हिन्दी</option><option class="text-on-surface bg-surface" value="pa">Punjabi ਪੰਜਾਬੀ</option><option class="text-on-surface bg-surface" value="mr">Marathi मराठी</option></select></div><div class="flex items-center gap-space-xs pl-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md text-on-primary leading-tight">Rajesh Verma</span><span class="font-label-sm text-label-sm text-on-primary-container">Nodal Admin & Field Officer</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNQV1-g6iORh4sAf9yieIv7_2MlS6-M0XK47n3RvNwDXtAI2Es1SqVJBjutFGmmXydwD6jdn4lLp0dlnq7wXStvzm58BulLxwM6MoqmmCRUHiIOCrm1rIit36okyV6W3nzZtfRq-a7XJbrJ8zQV82UNuCUzVkOpq92LGCco-IgsoJAzyOI1IDXx8wgMlgySEIVDVdeLGyvwqQmglpm62D9GweywHnXFGAvn4uJc_3_pytwJwXI5g"/></div></div></div></header><aside class="fixed left-0 top-20 bottom-0 w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex flex-col justify-between py-space-lg"><div class="flex flex-col px-space-md gap-space-lg"><div class="flex items-center justify-between px-space-xs"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Procurement Control</span><span class="font-label-sm text-label-sm bg-surface-container-high text-tertiary px-space-xs py-space-2xs rounded">Phase 1</span></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="live-queue-telemetry" href="#"><span class="material-symbols-outlined">alt_route</span>Queue Telemetry</a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="weighbridge-dispatch" href="#"><span class="material-symbols-outlined">scale</span>Weighbridge Operator</a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="slot-allocation-engine" href="#"><span class="material-symbols-outlined">smart_toy</span>AI Slot Optimizer</a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="procurement-analytics" href="#"><span class="material-symbols-outlined">query_stats</span>Procurement Analytics</a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="mandi-cluster-status" href="#"><span class="material-symbols-outlined">hub</span>Mandi Cluster Network</a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-2xs"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-sm text-tertiary-container">cloud_sync</span><span class="font-label-sm text-label-sm text-on-surface">SMS Fallback Sync</span></div><span class="font-body-sm text-body-sm text-on-surface-variant">Active via Gov SMS-Pravah Gateway</span></div><div class="flex items-center justify-between text-outline px-space-xs font-label-sm text-label-sm"><span>KisanFlow v2.4</span><span>SIH-2026</span></div></div></aside><div class="pl-72"><main class="relative pt-20 w-full min-h-screen bg-background"><div class="flex flex-col w-full">
+<!-- Operational Sub-Header Bar -->
+<section class="w-full bg-surface-container-lowest px-gutter-desktop py-space-md shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">warehouse</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h1 class="font-headline-md text-headline-md text-on-surface">Barnala Central Mandi</h1>
+<span class="px-space-xs py-space-2xs rounded bg-surface-container-high text-tertiary font-label-sm text-label-sm font-bold tracking-wide">Hub #04</span>
+<span class="px-space-xs py-space-2xs rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant font-mono">PB-BAR-04</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-xs">
+<span>Operational Window: <strong>08:00 AM – 06:00 PM</strong></span>
+<span>•</span>
+<span>CPO: <strong>Rajesh Kumar (Nodal ID #8841)</strong></span>
+</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-xl">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Weighbridge Status:</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Calibrated & Online</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-xl">
+<span class="material-symbols-outlined text-tertiary text-sm">wifi_tethering</span>
+<span class="font-label-sm text-label-sm text-on-surface">e-NAM Node:</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">Connected (Sync 4s ago)</span>
+</div>
+<button class="flex items-center gap-space-2xs px-space-sm py-space-xs rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" id="refreshDataBtn">
+<span class="material-symbols-outlined text-sm">refresh</span>
+<span>Refresh</span>
+</button>
+</div>
+</div>
+</section>
+<div class="p-gutter-desktop flex flex-col gap-space-xl">
+<!-- Top Operational KPI Row -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Farmers Today</span>
+<span class="material-symbols-outlined text-primary text-xl">group</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">142</span>
+<span class="font-body-sm text-body-sm text-outline">/ 180 quota</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5 mt-space-2xs overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 78.8%;"></div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs">trending_up</span> 78.8% target reached
+        </span>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Queue</span>
+<span class="material-symbols-outlined text-tertiary text-xl">hourglass_top</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-tertiary font-bold">14</span>
+<span class="font-body-sm text-body-sm text-on-surface">Farmers wait</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+            Avg. wait: <strong class="text-on-surface">16 Mins</strong>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs">south_east</span> 72% down via AI slotting
+        </span>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Procured Volume</span>
+<span class="material-symbols-outlined text-primary text-xl">grain</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">15,360</span>
+<span class="font-body-sm text-body-sm text-outline">Qtl</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+            128 Farmers cleared
+          </div>
+</div>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs">verified</span> Wheat (Kalyan Sona & Sharbati)
+        </span>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Counters Online</span>
+<span class="material-symbols-outlined text-tertiary-container text-xl">desktop_windows</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold">5</span>
+<span class="font-body-sm text-body-sm text-outline">/ 6 Ready</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+            1 Bay under scheduled tare
+          </div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-space-2xs">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></span> 83.3% capacity utility
+        </span>
+</div>
+<!-- KPI 5 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">DBT Disbursed</span>
+<span class="material-symbols-outlined text-secondary text-xl">payments</span>
+</div>
+<div class="my-space-xs">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-secondary font-bold">₹3.49</span>
+<span class="font-headline-sm text-headline-sm text-secondary">Cr</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+            PFMS Instant Settlements
+          </div>
+</div>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-xs">bolt</span> 99.4% success rate
+        </span>
+</div>
+</section>
+<!-- AI Crowd Forecast & Dynamic Load Balancing Hero Innovation -->
+<section class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg flex flex-col gap-space-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/10 text-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">auto_graph</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">AI Crowd Forecast & Dynamic Slot Balancing Engine</h2>
+<span class="bg-surface-container-high text-tertiary px-space-xs py-space-2xs rounded-full font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">bolt</span>KrishiNex ML v3.2
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time harvest intake telemetry cross-referenced with GPS tract tracking and weather alerts</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<!-- Congestion Index Indicator -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-xl">
+<div class="relative flex items-center justify-center">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="absolute w-3 h-3 rounded-full bg-secondary animate-ping"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Congestion Index</span>
+<span class="font-label-md text-label-md text-secondary font-bold">38% (Optimal / Green)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-xl">
+<span class="material-symbols-outlined text-tertiary">schedule</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Predicted Peak Window</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">11:30 AM – 01:15 PM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Forecast Graph + AI Dispatch Action Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<!-- Visual Bar Chart (Forecast Arrivals vs Capacity Threshold) -->
+<div class="lg:col-span-7 flex flex-col gap-space-sm bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-bold">Hour-by-Hour Tractor & Trolley Forecast</span>
+<span class="font-label-sm text-label-sm text-outline">(Today)</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-2xs">
+<span class="w-3 h-3 rounded bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Predicted Intake</span>
+</div>
+<div class="flex items-center gap-space-2xs">
+<span class="w-3 h-0.5 bg-error"></span>
+<span class="font-label-sm text-label-sm text-error">Yard Capacity (30/hr)</span>
+</div>
+</div>
+</div>
+<!-- Mini Bar Chart Container -->
+<div class="relative pt-space-md pb-space-xs w-full">
+<!-- Capacity Threshold Line -->
+<div class="absolute left-0 right-0 top-[38%] h-[1.5px] bg-error/40 border-dashed z-10 flex items-center justify-end pr-space-xs">
+<span class="font-label-sm text-label-sm text-error bg-surface-container-low px-space-2xs rounded">Threshold: 30</span>
+</div>
+<!-- Bars -->
+<div class="grid grid-cols-10 gap-space-2xs items-end h-40 pt-space-xs z-0">
+<!-- 08 AM -->
+<div class="flex flex-col items-center gap-space-2xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline">12</span>
+<div class="w-full bg-primary/70 hover:bg-primary transition-all rounded-t" style="height: 32%;"></div>
+<span class="font-label-sm text-label-sm text-outline">08:00</span>
+</div>
+<!-- 09 AM -->
+<div class="flex flex-col items-center gap-space-2xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline">18</span>
+<div class="w-full bg-primary/80 hover:bg-primary transition-all rounded-t" style="height: 48%;"></div>
+<span class="font-label-sm text-label-sm text-outline">09:00</span>
+</div>
+<!-- 10 AM (Current) -->
+<div class="flex flex-col items-center gap-space-2xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-secondary font-bold">24</span>
+<div class="w-full bg-primary hover:bg-primary transition-all rounded-t shadow-sm" style="height: 64%;"></div>
+<span class="font-label-sm text-label-sm text-primary font-bold">NOW</span>
+</div>
+<!-- 11 AM -->
+<div class="flex flex-col items-center gap-space-2xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold">28</span>
+<div class="w-full bg-tertiary-container/80 hover:bg-tertiary-container transition-all rounded-t" style="height: 74%;"></div>
+<span class="font-label-sm text-label-sm text-outline">11:00</span>
+</div>
+<!-- 12 PM (Peak Rerouted) -->
+<div class="flex flex-col items-center gap-space-2xs h-full justify-end relative">
+<div class="absolute -top-3 bg-secondary-container text-on-secondary-container px-1 rounded text-[10px] font-bold">-18 Div</div>
+<span class="font-label-sm text-label-sm text-error font-bold">34*</span>
+<div class="w-full bg-error-container hover:bg-error transition-all rounded-t" style="height: 90%;"></div>
+<span class="font-label-sm text-label-sm text-outline">12:00</span>
+</div>
+<!-- 01 PM -->
+<div class="flex flex-col items-center gap-space-2xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">26</span>
+<div class="w-full bg-tertiary-container/70 hover:bg-tertiary-container transition-all rounded-t" style="height: 69%;"></div>
+<span class="font-label-sm text-label-sm text-outline">01:00</span>
+</div>
+<!-- 02 PM -->
+<div class="flex flex-col items-center gap-space-2xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline">19</span>
+<div class="w-full bg-primary/70 hover:bg-primary transition-all rounded-t" style="height: 50%;"></div>
+<span class="font-label-sm text-label-sm text-outline">02:00</span>
+</div>
+<!-- 03 PM -->
+<div class="flex flex-col items-center gap-space-2xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline">15</span>
+<div class="w-full bg-primary/60 hover:bg-primary transition-all rounded-t" style="height: 40%;"></div>
+<span class="font-label-sm text-label-sm text-outline">03:00</span>
+</div>
+<!-- 04 PM -->
+<div class="flex flex-col items-center gap-space-2xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline">11</span>
+<div class="w-full bg-primary/50 hover:bg-primary transition-all rounded-t" style="height: 29%;"></div>
+<span class="font-label-sm text-label-sm text-outline">04:00</span>
+</div>
+<!-- 05 PM -->
+<div class="flex flex-col items-center gap-space-2xs h-full justify-end">
+<span class="font-label-sm text-label-sm text-outline">6</span>
+<div class="w-full bg-primary/40 hover:bg-primary transition-all rounded-t" style="height: 16%;"></div>
+<span class="font-label-sm text-label-sm text-outline">05:00</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span>Peak surge anticipated: 34 farmers (12:00 PM)</span>
+<span class="text-secondary font-bold">18 Rerouted to Dhuri Sub-Centre</span>
+</div>
+</div>
+<!-- AI Advisory Action Box -->
+<div class="lg:col-span-5 flex flex-col justify-between gap-space-md p-space-md bg-surface-container rounded-xl">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-container">smart_toy</span>
+<span class="font-label-md text-label-md text-tertiary-container font-bold uppercase tracking-wider">Automated Dispatch Advisory</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+<strong>Dynamic Load-Balancing Active:</strong> 18 tractor-trolleys en route from Bhadaur block were safely diverted via automated SMS/IVR to <strong>Dhuri Sub-Centre</strong> (6 km away, queue wait < 8 mins) to prevent bottleneck at Gate 02.
+            </p>
+<div class="p-space-xs bg-surface-container-lowest rounded-lg text-on-surface-variant font-body-sm text-body-sm flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-sm">lightbulb</span>
+<span><strong>Recommendation:</strong> Keep Counter 04 active without lunch interruption until 02:00 PM to clear mustard batches.</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="flex-1 bg-primary text-on-primary py-space-xs px-space-md rounded-xl font-label-md text-label-md font-bold hover:bg-primary-container transition-all flex items-center justify-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-sm">done_all</span>
+<span>Apply Optimal Shift Stagger</span>
+</button>
+<button class="bg-surface-container-lowest text-on-surface py-space-xs px-space-md rounded-xl font-label-md text-label-md font-medium hover:bg-surface-container-high transition-all flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm">alt_route</span>
+<span>Manage Diversion Hubs</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Center Layout: Live Queue Table + Operational Resource Matrix -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Live Queue Management & Counter Dispatch (8 cols) -->
+<section class="xl:col-span-8 bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Live Queue & Counter Dispatch</h3>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Real-time gate arrivals, e-token status, and weighing allocation</span>
+</div>
+<!-- Filter Pills -->
+<div class="flex flex-wrap items-center gap-space-2xs bg-surface-container-low p-1 rounded-xl">
+<button class="filter-btn active px-space-sm py-1 rounded-lg font-label-sm text-label-sm bg-surface-container-lowest text-primary font-bold shadow-sm" data-filter="all">All (14)</button>
+<button class="filter-btn px-space-sm py-1 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" data-filter="waiting">Waiting (8)</button>
+<button class="filter-btn px-space-sm py-1 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" data-filter="in-process">In-Process (4)</button>
+<button class="filter-btn px-space-sm py-1 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" data-filter="completed">Completed (128)</button>
+<button class="filter-btn px-space-sm py-1 rounded-lg font-label-sm text-label-sm text-secondary hover:text-primary transition-colors flex items-center gap-1" data-filter="diverted">
+<span>Diverted</span>
+<span class="px-1.5 py-0.2 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold">18</span>
+</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-xs px-space-sm rounded-l-lg">Token ID</th>
+<th class="py-space-xs px-space-sm">Farmer Details</th>
+<th class="py-space-xs px-space-sm">Crop & Quantity</th>
+<th class="py-space-xs px-space-sm text-center">Counter</th>
+<th class="py-space-xs px-space-sm">Arrival</th>
+<th class="py-space-xs px-space-sm">Status</th>
+<th class="py-space-xs px-space-sm text-right rounded-r-lg">Quick Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-sm text-body-sm" id="queueTableBody">
+<!-- Row 1: Weighing -->
+<tr class="hover:bg-surface-container-low/60 transition-colors" data-status="in-process">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-md text-label-md font-bold text-primary bg-primary/10 px-space-xs py-space-2xs rounded font-mono">A-026</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Baldev Singh</span>
+<span class="font-body-sm text-body-sm text-outline">Tractor: PB-19-T-4912</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Wheat (Sharbati)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">110 Quintals</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-tertiary rounded font-label-sm text-label-sm font-bold font-mono">Bay 02</span>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-mono">10:14 AM</td>
+<td class="py-space-sm px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-space-2xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span> Weighing
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-space-2xs">
+<button class="px-space-xs py-space-2xs bg-primary text-on-primary hover:bg-primary-container rounded-lg font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">done</span> Complete
+                    </button>
+<button class="p-space-2xs bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors" title="Print Weight Slip">
+<span class="material-symbols-outlined text-sm">print</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Called / Next -->
+<tr class="hover:bg-surface-container-low/60 transition-colors" data-status="waiting">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-md text-label-md font-bold text-tertiary bg-tertiary/10 px-space-xs py-space-2xs rounded font-mono">A-027</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Ramesh Kumar</span>
+<span class="font-body-sm text-body-sm text-outline">Tractor: PB-03-F-1108</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Wheat (Kalyan)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">120 Quintals</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-tertiary rounded font-label-sm text-label-sm font-bold font-mono">Bay 03</span>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-mono">10:22 AM</td>
+<td class="py-space-sm px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-space-2xs rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Called / Next
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-space-2xs">
+<button class="px-space-xs py-space-2xs bg-tertiary text-on-tertiary hover:bg-tertiary-container rounded-lg font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">volume_up</span> Recall
+                    </button>
+<button class="p-space-2xs bg-surface-container hover:bg-surface-container-high rounded-lg text-tertiary transition-colors" title="Trigger SMS Alert">
+<span class="material-symbols-outlined text-sm">sms</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Waiting In Yard -->
+<tr class="hover:bg-surface-container-low/60 transition-colors" data-status="waiting">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-md text-label-md font-bold text-on-surface bg-surface-container px-space-xs py-space-2xs rounded font-mono">A-028</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Gurmeet Kaur</span>
+<span class="font-body-sm text-body-sm text-outline">Trolley: PB-19-P-7281</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Mustard (Sarson)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">45 Quintals</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-tertiary rounded font-label-sm text-label-sm font-bold font-mono">Bay 01</span>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-mono">10:28 AM</td>
+<td class="py-space-sm px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-space-2xs rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">
+<span class="w-2 h-2 rounded-full bg-outline"></span> Waiting Yard
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-space-2xs">
+<button class="px-space-xs py-space-2xs bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">login</span> Assign Bay
+                    </button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Gate Check-in -->
+<tr class="hover:bg-surface-container-low/60 transition-colors" data-status="waiting">
+<td class="py-space-sm px-space-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="font-label-md text-label-md font-bold text-outline bg-surface-container-low px-space-xs py-space-2xs rounded font-mono">A-029</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Hardeep Singh</span>
+<span class="font-body-sm text-body-sm text-outline">Tractor: PB-11-L-3390</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Wheat (Sharbati)</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">95 Quintals</span>
+</div>
+</td>
+<td class="py-space-sm px-space-sm text-center">
+<span class="text-outline font-label-sm text-label-sm font-mono">—</span>
+</td>
+<td class="py-space-sm px-space-sm text-on-surface-variant font-mono">10:35 AM</td>
+<td class="py-space-sm px-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-xs py-space-2xs rounded-full bg-surface-container-low text-outline font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-xs">qr_code_scanner</span> Gate Check-in
+                  </span>
+</td>
+<td class="py-space-sm px-space-sm text-right">
+<div class="flex items-center justify-end gap-space-2xs">
+<button class="px-space-xs py-space-2xs bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary rounded-lg font-label-sm text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Scan Token
+                    </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex flex-wrap items-center justify-between pt-space-xs text-outline font-body-sm text-body-sm">
+<span>Showing 4 of 14 queue allocations</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-xs py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high">Previous</button>
+<span class="px-space-xs py-1 font-label-sm text-label-sm text-on-surface font-bold">1 / 4</span>
+<button class="px-space-xs py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high">Next</button>
+</div>
+</div>
+</section>
+<!-- Center Capacity & Resource Allocation Matrix (4 cols) -->
+<aside class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- Live Counters Matrix Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary">apps</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Mandi Resource Bays</h3>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">5/6 Active</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-space-xs">
+<!-- Counter 1 -->
+<div class="p-space-xs rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center font-mono font-bold text-on-surface">01</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Grain Quality Inspector</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dr. Sharma • Moisture Lab</span>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Active</span>
+</div>
+<!-- Counter 2 -->
+<div class="p-space-xs rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center font-mono font-bold text-on-surface">02</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Weighbridge North (60T)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Op. Harpreet • Token A-026</span>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Busy</span>
+</div>
+<!-- Counter 3 -->
+<div class="p-space-xs rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center font-mono font-bold text-on-surface">03</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Weighbridge South (40T)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Op. Gurtej • Token A-027</span>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">Ready</span>
+</div>
+<!-- Counter 4 -->
+<div class="p-space-xs rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center font-mono font-bold text-on-surface">04</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Moisture & Foreign Matter</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Inspector Sunita • High Throughput</span>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Active</span>
+</div>
+<!-- Counter 5 -->
+<div class="p-space-xs rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center font-mono font-bold text-on-surface">05</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Direct Unloading Bay East</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">FCI Wagon Relay Link</span>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Active</span>
+</div>
+<!-- Counter 6 (Down for Cal) -->
+<div class="p-space-xs rounded-xl bg-surface-container-low flex items-center justify-between opacity-80">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center font-mono font-bold text-outline">06</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Auxiliary Tare Scale</span>
+<span class="font-body-sm text-body-sm text-outline">Standard Metrology Calibration</span>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-surface-container-high text-outline font-label-sm text-label-sm font-semibold">Calibrating</span>
+</div>
+</div>
+</div>
+<!-- Real-Time Alerts Ticker Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary">campaign</span>
+<h4 class="font-label-lg text-label-lg text-on-surface font-bold">Operational Broadcasts</h4>
+</div>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1 font-bold">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span> Live
+            </span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Alert 1 -->
+<div class="p-space-xs rounded-lg bg-surface-container-high/60 flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-sm mt-0.5">traffic</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">High inbound surge from Bhadaur sector</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Est. 12:15 PM peak. Automated diversion flags sent to 18 farmers.</span>
+</div>
+</div>
+<!-- Alert 2 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Weighbridge #2 Tare Calibrated</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Certified by Dist. Inspector at 09:40 AM (±0.02% error margin).</span>
+</div>
+</div>
+<!-- Alert 3 -->
+<div class="p-space-xs rounded-lg bg-surface-container-low flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-sm mt-0.5">cloud_done</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Govt SMS-Pravah Gateway 100% Delivery</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Avg latency 1.4s across Airtel, Jio, and BSNL rural towers.</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  // Simple queue filtering micro-interaction
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active', 'bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+        b.classList.add('text-on-surface-variant');
+      });
+      btn.classList.add('active', 'bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+      btn.classList.remove('text-on-surface-variant');
+      
+      const filter = btn.dataset.filter;
+      const rows = document.querySelectorAll('#queueTableBody tr');
+      rows.forEach(r => {
+        if (filter === 'all' || r.dataset.status === filter) {
+          r.style.display = '';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Feedback pulse on refresh
+  const refreshBtn = document.getElementById('refreshDataBtn');
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', () => {
+      const icon = refreshBtn.querySelector('.material-symbols-outlined');
+      if (icon) icon.classList.add('animate-spin');
+      setTimeout(() => {
+        if (icon) icon.classList.remove('animate-spin');
+      }, 700);
+    });
+  }
+</script></main></div></body></html>

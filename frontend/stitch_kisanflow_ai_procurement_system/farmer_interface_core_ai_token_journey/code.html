@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>KisanFlow AI • Farmer Experience Engine • SIH 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300..900;1,300..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .pulse-ring {
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.6); }
+      70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(21, 128, 61, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(21, 128, 61, 0); }
+    }
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(1000%); }
+    }
+    .scanner-line {
+      animation: scanline 2.5s linear infinite;
+    }
+    @media print {
+      body * { visibility: hidden; }
+      #printable-modal, #printable-modal * { visibility: visible; }
+      #printable-modal { position: absolute; left: 0; top: 0; width: 100%; }
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-background": "#131b2e",
+            "surface-container-highest": "#dae2fd",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#79db8d",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#00210a",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#005c85",
+            "primary-container": "#15803d",
+            "on-secondary-fixed": "#002109",
+            "on-primary-container": "#d3ffd5",
+            "surface-variant": "#dae2fd",
+            "secondary-fixed-dim": "#4ae176",
+            "on-secondary-container": "#007432",
+            "background": "#faf8ff",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#eaf4ff",
+            "on-surface-variant": "#3f493f",
+            "tertiary-fixed-dim": "#89ceff",
+            "tertiary-container": "#0076a9",
+            "on-tertiary-fixed": "#001e2f",
+            "secondary": "#006e2f",
+            "on-surface": "#131b2e",
+            "primary": "#00652c",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "surface-tint": "#006d30",
+            "on-tertiary-fixed-variant": "#004c6e",
+            "on-secondary-fixed-variant": "#005321",
+            "inverse-on-surface": "#eef0ff",
+            "surface-container-high": "#e2e7ff",
+            "tertiary-fixed": "#c9e6ff",
+            "inverse-surface": "#283044",
+            "surface": "#faf8ff",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#95f8a7",
+            "surface-dim": "#d2d9f4",
+            "outline-variant": "#becabc",
+            "surface-container": "#eaedff",
+            "secondary-container": "#6bff8f",
+            "surface-container-low": "#f2f3ff",
+            "on-primary": "#ffffff",
+            "primary-fixed-dim": "#79db8d",
+            "on-primary-fixed-variant": "#005323",
+            "outline": "#6f7a6e",
+            "secondary-fixed": "#6bff8f",
+            "surface-bright": "#faf8ff"
+          },
+          fontFamily: {
+            "body-md": ["Public Sans", "sans-serif"],
+            "label-md": ["Space Grotesk", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background font-body-md text-base text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+
+<!-- Global Toast Notification Container -->
+<div id="toast-container" class="fixed bottom-5 right-5 z-[9999] flex flex-col gap-2 pointer-events-none"></div>
+
+<!-- Top Global Bar with Brand Logo & Inter-Portal Links -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-primary-container text-on-primary shadow-md">
+  <div class="w-full px-4 md:px-8 h-20 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-4 min-w-max">
+      <a href="../../index.html" class="flex items-center bg-white px-2.5 py-1.5 rounded-lg shadow-sm hover:scale-105 transition-transform" title="Return to KisanFlow Suite Gateway">
+        <img alt="KisanFlow AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UHBQemQgXsIP6WjXBc_VkZ_RDfCqH09FWC_npU7EFGMNuOtMBNOfx15iW6Wwq54w6r103yZqbtT9cDsJJ4tZYq3j84H1bY8Pp2_6DrF_r5rjM7aJ5XeB6h3NP--sTt5LE4vlRIpuojpl4riXp2-JnotasYcKfHLlFZdWo8z_VHZkmN1_-h3Ieg2r9slTgDOlwLUL1zNjgSQF-5LBBz-YYpriKh9jvVq36bXpDqOMj7Z3ByrO8qpL-m"/>
+      </a>
+      <div class="hidden sm:flex flex-col">
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-lg tracking-tight text-on-primary font-body-md">KisanFlow AI</span>
+          <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold uppercase tracking-wider">SIH 2026 Grand Finalist</span>
+        </div>
+        <span class="text-xs text-on-primary-container">KrishiNex • Queue Dampening &amp; Direct DBT Settlement</span>
+      </div>
+    </div>
+
+    <!-- Navigation Across Entire KisanFlow Platform -->
+    <nav class="hidden lg:flex items-center bg-primary/70 p-1.5 rounded-xl gap-1">
+      <a aria-current="page" class="px-4 py-2 rounded-lg bg-surface text-primary font-bold shadow-sm text-sm" href="code.html">Farmer Experience Portal</a>
+      <a class="px-4 py-2 rounded-lg font-medium text-sm text-on-primary hover:bg-white/10 transition-colors" href="../mandi_procurement_operations_ai_queue_manager/code.html">Mandi Operations</a>
+      <a class="px-4 py-2 rounded-lg font-medium text-sm text-on-primary hover:bg-white/10 transition-colors" href="../admin_government_central_command_dashboard/code.html">Central Command</a>
+      <a class="px-3 py-2 rounded-lg font-medium text-xs bg-white/10 text-secondary-fixed hover:bg-white/20 transition-colors flex items-center gap-1" href="../farmer_interface_mobile_suite_booking_flow/code.html">
+        <span class="material-symbols-outlined text-sm">smartphone</span> Mobile Suite
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-3 min-w-max">
+      <!-- Voice Guidance Switch for Accessibility -->
+      <button class="flex items-center gap-2 bg-white/20 hover:bg-white/30 text-on-primary px-3 py-1.5 rounded-lg text-sm font-semibold transition-all shadow-sm" id="voice-toggle-btn" onclick="toggleVoiceAssist()">
+        <span class="material-symbols-outlined text-base" id="voice-icon">record_voice_over</span>
+        <span class="hidden md:inline" id="voice-label">Voice Guide: ON</span>
+      </button>
+
+      <!-- Compliance Badges -->
+      <div class="hidden xl:flex items-center gap-2 bg-primary/40 px-2.5 py-1.5 rounded-lg text-xs text-on-primary border border-white/20 cursor-pointer hover:bg-primary/60 transition-colors" onclick="openFarmerProfileModal()" title="View AgriStack Verified Credentials">
+        <span class="material-symbols-outlined text-xs text-secondary-container">verified</span>
+        <span>AgriStack &amp; e-NAM Verified</span>
+      </div>
+
+      <!-- Language Pill -->
+      <div class="flex items-center gap-1 bg-white/15 px-2.5 py-1.5 rounded-lg">
+        <span class="material-symbols-outlined text-sm text-on-primary-container">g_translate</span>
+        <select id="language-select" class="bg-transparent text-sm font-medium text-on-primary outline-none cursor-pointer" onchange="changeLanguage(this.value)">
+          <option class="text-on-surface bg-surface" value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+          <option class="text-on-surface bg-surface" value="hi">हिन्दी (Hindi)</option>
+          <option class="text-on-surface bg-surface" selected value="en">English / Bilangual</option>
+        </select>
+      </div>
+
+      <!-- Farmer Profile Picture / Trigger -->
+      <button onclick="openFarmerProfileModal()" class="relative rounded-full ring-2 ring-secondary-container hover:scale-105 transition-transform" title="Farmer Ramesh Kumar • AgriStack Profile">
+        <img alt="Farmer Ramesh Kumar Profile" class="w-9 h-9 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNQV1-g6iORh4sAf9yieIv7_2MlS6-M0XK47n3RvNwDXtAI2Es1SqVJBjutFGmmXydwD6jdn4lLp0dlnq7wXStvzm58BulLxwM6MoqmmCRUHiIOCrm1rIit36okyV6W3nzZtfRq-a7XJbrJ8zQV82UNuCUzVkOpq92LGCco-IgsoJAzyOI1IDXx8wgMlgySEIVDVdeLGyvwqQmglpm62D9GweywHnXFGAvn4uJc_3_pytwJwXI5g"/>
+        <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-1 ring-white"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Main Container -->
+<main class="relative pt-20 w-full min-h-screen bg-background">
+  <div class="w-full px-4 md:px-8 py-6 flex flex-col gap-6 max-w-[1600px] mx-auto">
+    
+    <!-- Top SIH Showcase Banner & Interactive Journey Stage Switcher -->
+    <div class="w-full bg-surface-container-lowest rounded-2xl p-5 md:p-6 shadow-sm border border-slate-200/80 flex flex-col gap-4">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex flex-col gap-1">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-2.5 py-0.5 rounded bg-primary text-on-primary text-xs font-bold uppercase tracking-wider">SIH 2026 Innovation Showcase</span>
+            <span class="text-on-surface-variant text-xs font-semibold">Real-Time Mandi Yard Balancing • 140M+ Agrarian Producers</span>
+            <span class="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded font-medium border border-emerald-300">
+              <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+              Direct DBT Assured
+            </span>
+          </div>
+          <h1 class="text-2xl md:text-3xl font-extrabold text-on-surface tracking-tight" id="ui-hero-title">KisanFlow AI • Complete Farmer Journey Engine</h1>
+          <p class="text-sm md:text-base text-on-surface-variant font-normal" id="ui-hero-desc">
+            Eliminating overnight tractor bottlenecks, moisture disputes, and procurement fraud through predictive load balancing &amp; instant PFMS settlement.
+          </p>
+        </div>
+
+        <!-- Quick Audio Prompt Pill -->
+        <div class="flex items-center gap-3 bg-primary/10 border border-primary/20 px-4 py-2.5 rounded-xl self-start md:self-auto hover:bg-primary/15 transition-colors cursor-pointer" onclick="replayHomeAudio()" title="Click to play voice guidance">
+          <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-lg">volume_up</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xs font-bold text-primary">IVR / ਬੋਲਦੀ ਸਹਾਇਤਾ ਸੁਣੋ</span>
+            <span class="text-xs text-on-surface-variant">Toll-Free 1800-180-1551 (ਪੰਜਾਬੀ / हिन्दी)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Interactive Journey Switcher Tabs with Clear numbering -->
+      <div class="w-full bg-surface-container-low p-2 rounded-xl border border-slate-200">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2" role="tablist">
+          <button class="journey-tab px-3 py-3 rounded-lg text-left transition-all border flex flex-col gap-1 bg-surface-container-lowest text-on-surface border-slate-200 hover:border-primary/50" id="tab-home" onclick="switchView('view-home')">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-primary tracking-wider">Step 1</span>
+              <span class="material-symbols-outlined text-sm text-primary">dashboard</span>
+            </div>
+            <span class="font-bold text-sm leading-tight text-on-surface">1. Farmer Home &amp; Booking</span>
+            <span class="text-xs text-on-surface-variant">ਕਿਸਾਨ ਡੈਸ਼ਬੋਰਡ / ਕੋਟਾ</span>
+          </button>
+
+          <button class="journey-tab px-3 py-3 rounded-lg text-left transition-all border flex flex-col gap-1 bg-primary text-on-primary border-primary shadow-md ring-2 ring-primary/20" id="tab-recommend" onclick="switchView('view-recommend')">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-secondary-container tracking-wider">Step 2 • Core AI</span>
+              <span class="material-symbols-outlined text-sm text-secondary-container">psychology</span>
+            </div>
+            <span class="font-bold text-sm leading-tight">2. AI Slot Recommendation</span>
+            <span class="text-xs text-on-primary-container">ਗਤੀਸ਼ੀਲ ਸੰਤੁਲਨ (3.5h → 18m)</span>
+          </button>
+
+          <button class="journey-tab px-3 py-3 rounded-lg text-left transition-all border flex flex-col gap-1 bg-surface-container-lowest text-on-surface border-slate-200 hover:border-primary/50" id="tab-token" onclick="switchView('view-token')">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-primary tracking-wider">Step 3</span>
+              <span class="material-symbols-outlined text-sm text-primary">confirmation_number</span>
+            </div>
+            <span class="font-bold text-sm leading-tight text-on-surface">3. Digital Token Pass (<span class="token-num-disp">A-027</span>)</span>
+            <span class="text-xs text-on-surface-variant">QR ਟੋਕਨ • Bay 02 Gate Pass</span>
+          </button>
+
+          <button class="journey-tab px-3 py-3 rounded-lg text-left transition-all border flex flex-col gap-1 bg-surface-container-lowest text-on-surface border-slate-200 hover:border-primary/50" id="tab-queue" onclick="switchView('view-queue')">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-primary tracking-wider">Step 4</span>
+              <span class="material-symbols-outlined text-sm text-primary">hourglass_top</span>
+            </div>
+            <span class="font-bold text-sm leading-tight text-on-surface">4. Live Queue &amp; Dwell Time</span>
+            <span class="text-xs text-on-surface-variant">ਤੋਲ ਅਤੇ ਕਤਾਰ ਟਰੈਕਿੰਗ</span>
+          </button>
+
+          <button class="journey-tab px-3 py-3 rounded-lg text-left transition-all border flex flex-col gap-1 bg-surface-container-lowest text-on-surface border-slate-200 hover:border-primary/50" id="tab-tracker" onclick="switchView('view-tracker')">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-primary tracking-wider">Step 5</span>
+              <span class="material-symbols-outlined text-sm text-primary">account_balance_wallet</span>
+            </div>
+            <span class="font-bold text-sm leading-tight text-on-surface">5. DBT Payment Tracker</span>
+            <span class="text-xs text-on-surface-variant"><span class="total-val-disp">₹2,50,250</span> ਜਮ੍ਹਾਂ • PFMS UTR</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT ROW: Dynamic Left Core View + Right AI Control Telemetry -->
+    <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- Interactive Innovation Showcase View Container (8 Columns) -->
+      <div class="lg:col-span-8 flex flex-col gap-6">
+        
+        <!-- ================= SCREEN 1: FARMER HOME & BOOKING ================= -->
+        <div class="journey-view hidden flex-col w-full bg-surface-container-lowest rounded-2xl shadow-sm border border-slate-200/90 p-6 md:p-8" id="view-home">
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-primary text-on-primary text-xs font-bold uppercase cursor-pointer hover:opacity-90" onclick="openFarmerProfileModal()">AgriStack ID: PB-2026-8819</span>
+                <span class="text-xs text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">Khewat #442/10 Barnala Verified</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-extrabold text-on-surface mt-1" id="ui-farmer-greeting">ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ • Namaste, Ramesh Kumar</h2>
+              <p class="text-base text-on-surface-variant">Rabi Marketing Season 2026-27 • MSP Assurance Guarantee by Government of India</p>
+            </div>
+            <div class="flex items-center gap-3 bg-surface-container-low px-4 py-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-surface-container transition-colors" onclick="openFarmerProfileModal()">
+              <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+              <div class="flex flex-col text-sm">
+                <span class="font-bold text-on-surface">Kisan Credit Sync Active</span>
+                <span class="text-xs text-on-surface-variant">Aadhaar PFMS Seeded: SBI Bank</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accessibility Audio Prompt -->
+          <div class="my-5 p-3.5 bg-amber-50 border border-amber-200 rounded-xl flex items-center justify-between gap-3 text-amber-900">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-amber-700">volume_up</span>
+              <span class="text-sm font-semibold" id="ui-voice-home-text">Voice Prompt: ਤੁਹਾਡੀ 110 ਕੁਇੰਟਲ ਕਣਕ ਮੰਡੀ ਵਿੱਚ ਜਮ੍ਹਾਂ ਕਰਵਾਉਣ ਲਈ ਤਿਆਰ ਹੈ। ਹੇਠਾਂ ਦਿੱਤਾ ਹਰਾ ਬਟਨ ਦਬਾਓ।</span>
+            </div>
+            <button class="px-3 py-1 bg-amber-200 hover:bg-amber-300 rounded text-xs font-bold text-amber-900 shrink-0 transition-colors" onclick="replayHomeAudio()">
+              Replay Audio
+            </button>
+          </div>
+
+          <!-- Large High-Contrast Tactile Metrics Ribbon with Dynamic interactive controls -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pb-6">
+            <!-- Quota card with stepper -->
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-slate-200 flex flex-col justify-between shadow-sm relative group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Allocated Harvest Quota</span>
+                <span class="material-symbols-outlined text-primary text-xl">inventory_2</span>
+              </div>
+              <div class="mt-3">
+                <div class="flex items-center justify-between">
+                  <div class="text-3xl font-black text-on-surface" id="quota-disp">110.0 Qtl</div>
+                  <!-- Interactive Adjuster -->
+                  <div class="flex items-center gap-1 bg-white p-1 rounded-lg border border-slate-200 shadow-sm">
+                    <button class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 font-bold text-sm flex items-center justify-center transition-colors" onclick="adjustQuota(-10)" title="Decrease Quota by 10 Qtl">-</button>
+                    <button class="w-7 h-7 rounded bg-primary text-white hover:bg-primary-container font-bold text-sm flex items-center justify-center transition-colors" onclick="adjustQuota(10)" title="Increase Quota by 10 Qtl">+</button>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 mt-2">
+                  <select id="crop-select" class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-1 rounded border border-emerald-300 outline-none cursor-pointer" onchange="changeCrop(this.value)">
+                    <option value="wheat" selected>Wheat (Sharbati Grade-A)</option>
+                    <option value="paddy">Paddy (Basmati Grade-1)</option>
+                    <option value="mustard">Mustard (Pusa Bold)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- MSP Rate Card -->
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-slate-200 flex flex-col justify-between shadow-sm">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Official MSP Rate / ਭਾਅ</span>
+                <span class="material-symbols-outlined text-secondary text-xl">trending_up</span>
+              </div>
+              <div class="mt-3">
+                <div class="text-3xl font-black text-secondary" id="msp-rate-disp">₹2,275 <span class="text-base font-medium text-on-surface-variant">/ Qtl</span></div>
+                <span class="text-xs font-bold text-secondary inline-block mt-1">+₹150 Guaranteed Bonus Included</span>
+              </div>
+            </div>
+
+            <!-- Total Estimated Value Card -->
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-slate-200 flex flex-col justify-between shadow-sm">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Total Value / ਅਨੁਮਾਨਿਤ ਰਕਮ</span>
+                <span class="material-symbols-outlined text-primary text-xl">payments</span>
+              </div>
+              <div class="mt-3">
+                <div class="text-3xl font-black text-primary total-val-disp">₹2,50,250</div>
+                <span class="text-xs text-on-surface-variant block mt-1 font-medium">Direct DBT to Bank of Baroda *4912</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Primary Crop Card Banner -->
+          <div class="bg-primary text-on-primary rounded-2xl p-6 shadow-md relative overflow-hidden flex flex-col justify-between">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold uppercase tracking-wider">
+                  <span class="material-symbols-outlined text-sm">check_circle</span>
+                  Moisture Pre-Tested: 11.2% (Passed Mandi Standards)
+                </div>
+                <h3 class="text-2xl font-bold mt-2">Ready to Dispatch Crop • ਸਲਾਟ ਬੁੱਕ ਕਰੋ</h3>
+                <p class="text-sm text-on-primary-container mt-1">Vehicle PB-19-T-4912 registered. Dynamic AI queue dampening active across Barnala &amp; Jalandhar.</p>
+              </div>
+              <div class="p-3 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-5xl text-secondary-container">agriculture</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/20 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <button class="flex-1 h-14 bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container font-bold text-base md:text-lg rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 transform active:scale-95" onclick="bookRecommendedSlot()">
+                <span class="material-symbols-outlined text-xl">psychology</span>
+                <span>BOOK AI RECOMMENDED SLOT NOW (1-CLICK)</span>
+              </button>
+              <button class="px-6 h-14 bg-white/20 hover:bg-white/30 text-white font-bold text-sm md:text-base rounded-xl transition-all flex items-center justify-center gap-2" onclick="switchView('view-token')">
+                <span class="material-symbols-outlined text-lg">qr_code_2</span>
+                <span>View Active Token</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Service Accessibility Actions -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
+            <button class="p-4 bg-surface-container-low hover:bg-surface-container rounded-xl border border-slate-200 text-center flex flex-col items-center gap-1 transition-all" onclick="openGpsRouteModal()">
+              <span class="material-symbols-outlined text-primary text-2xl">commute</span>
+              <span class="font-bold text-sm text-on-surface">Mandi Route</span>
+              <span class="text-xs text-on-surface-variant">Check Live GPS</span>
+            </button>
+            <button class="p-4 bg-surface-container-low hover:bg-surface-container rounded-xl border border-slate-200 text-center flex flex-col items-center gap-1 transition-all" onclick="switchView('view-token')">
+              <span class="material-symbols-outlined text-primary text-2xl">confirmation_number</span>
+              <span class="font-bold text-sm text-on-surface">Token Pass</span>
+              <span class="text-xs text-on-surface-variant">Bay 02 Pass</span>
+            </button>
+            <button class="p-4 bg-surface-container-low hover:bg-surface-container rounded-xl border border-slate-200 text-center flex flex-col items-center gap-1 transition-all" onclick="switchView('view-queue')">
+              <span class="material-symbols-outlined text-primary text-2xl">hourglass_bottom</span>
+              <span class="font-bold text-sm text-on-surface">Live Queue</span>
+              <span class="text-xs text-on-surface-variant"><span id="quick-queue-ahead">6</span> Ahead on Scale</span>
+            </button>
+            <button class="p-4 bg-surface-container-low hover:bg-surface-container rounded-xl border border-slate-200 text-center flex flex-col items-center gap-1 transition-all" onclick="switchView('view-tracker')">
+              <span class="material-symbols-outlined text-primary text-2xl">account_balance</span>
+              <span class="font-bold text-sm text-on-surface">DBT &amp; J-Form</span>
+              <span class="text-xs text-on-surface-variant">Bank Transfer</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= SCREEN 2: CORE INNOVATION - AI BEST CENTRE & SLOT RECOMMENDATION ================= -->
+        <div class="journey-view flex flex-col w-full bg-surface-container-lowest rounded-2xl shadow-sm border border-slate-200/90 p-6 md:p-8" id="view-recommend">
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-primary text-on-primary text-xs font-bold uppercase tracking-wider">Core SIH Innovation Screen #2</span>
+                <span class="text-xs text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-semibold">Real-Time Queue Dampener Algorithm</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-extrabold text-on-surface mt-1">AI Best Centre &amp; Dynamic Slot Allocation</h2>
+              <p class="text-base text-on-surface-variant">ਸਭ ਤੋਂ ਵਧੀਆ ਮੰਡੀ ਕੇਂਦਰ ਚੋਣ • Live load balancing across regional grain silos</p>
+            </div>
+            <div class="flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-3 py-2 rounded-xl text-emerald-800 text-xs font-bold">
+              <span class="material-symbols-outlined text-base">sensors</span>
+              <span>Telemetry: 12 Sensor Nodes Online</span>
+            </div>
+          </div>
+
+          <!-- Innovation Highlight Banner: 24 Tractor Divert Advisory -->
+          <div class="mt-4 p-4 rounded-xl bg-gradient-to-r from-emerald-900 to-primary-container text-white shadow-md flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-xl bg-secondary-container/20 flex items-center justify-center shrink-0 border border-secondary-container/40">
+                <span class="material-symbols-outlined text-secondary-container text-2xl">alt_route</span>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-secondary-container uppercase tracking-wider">Dynamic Load Balancing Advisory #882</span>
+                <h4 class="text-base md:text-lg font-bold">Automatic 24-Tractor Rerouting Executed</h4>
+                <p class="text-xs text-emerald-100">KisanFlow AI diverted 24 inward tractors away from choked Jalandhar Mandi to Barnala Central Hub to prevent gridlock.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0 bg-white/10 px-4 py-2 rounded-xl text-center">
+              <div>
+                <div class="text-xs text-emerald-200 uppercase font-semibold">Time Saved</div>
+                <div class="text-xl font-black text-secondary-fixed">3.5 hrs → 18 mins</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- THE CORE AI CARD (ABC/Barnala vs Jalandhar Comparison) -->
+          <div class="mt-6 border-2 border-primary rounded-2xl bg-gradient-to-br from-emerald-950 via-primary-container to-emerald-900 text-white p-6 md:p-8 shadow-xl relative overflow-hidden">
+            <!-- Top Header Pill -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 relative z-10 pb-4 border-b border-white/15">
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-wide flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">star</span>
+                  AI Optimal Match (ਸਿਫ਼ਾਰਸ਼ੀ ਕੇਂਦਰ)
+                </span>
+                <span class="text-xs text-emerald-200">Confidence Score: 98.6%</span>
+              </div>
+              <div class="flex items-center gap-2 bg-emerald-500/20 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold">
+                <span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed animate-ping"></span>
+                <span>Green Corridor Active: Low Congestion</span>
+              </div>
+            </div>
+
+            <!-- Recommendation Main Title -->
+            <div class="relative z-10 my-5">
+              <div class="text-xs uppercase font-bold text-secondary-fixed tracking-wider">Best Recommended Hub</div>
+              <h3 class="text-3xl md:text-4xl font-black tracking-tight text-white mt-1" id="rec-hub-title">Barnala Central Mandi (ABC Hub-1)</h3>
+              <p class="text-emerald-100 text-base mt-1 font-medium" id="rec-hub-desc">Allocated: Unloading Bay #02 • Automated Pneumatic Wheat Grain Elevator</p>
+            </div>
+
+            <!-- 4 Big Metric Cards Inside AI Rec -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 relative z-10 my-4">
+              <div class="p-4 rounded-xl bg-white/10 backdrop-blur border border-white/15">
+                <span class="text-xs text-emerald-200 block uppercase font-bold">Assigned Slot Window</span>
+                <div class="text-xl md:text-2xl font-black text-white mt-1" id="rec-slot-time">Today 10:30 AM</div>
+                <span class="text-xs text-secondary-fixed font-semibold">10:30 AM – 11:30 AM</span>
+              </div>
+              <div class="p-4 rounded-xl bg-white/10 backdrop-blur border border-white/15">
+                <span class="text-xs text-emerald-200 block uppercase font-bold">Estimated Yard Wait</span>
+                <div class="text-xl md:text-2xl font-black text-secondary-fixed mt-1" id="rec-wait-time">18 Mins</div>
+                <span class="text-xs text-emerald-200">Saved ~3 hr 12 mins</span>
+              </div>
+              <div class="p-4 rounded-xl bg-white/10 backdrop-blur border border-white/15">
+                <span class="text-xs text-emerald-200 block uppercase font-bold">Queue Ahead</span>
+                <div class="text-xl md:text-2xl font-black text-white mt-1" id="rec-queue-ahead">6 Tractors</div>
+                <span class="text-xs text-emerald-200">Processing: 4 min/load</span>
+              </div>
+              <div class="p-4 rounded-xl bg-white/10 backdrop-blur border border-white/15">
+                <span class="text-xs text-emerald-200 block uppercase font-bold">Transit Run</span>
+                <div class="text-xl md:text-2xl font-black text-white mt-1" id="rec-dist">2.4 KM</div>
+                <span class="text-xs text-emerald-200">~7 min tractor drive</span>
+              </div>
+            </div>
+
+            <!-- Interactive Time Slot Pill Selector -->
+            <div class="relative z-10 mt-4 pt-3 border-t border-white/15 flex flex-wrap items-center gap-2">
+              <span class="text-xs uppercase font-bold text-emerald-200">Choose Slot Window:</span>
+              <button class="slot-pill px-3 py-1 rounded-lg text-xs font-bold bg-secondary-container text-on-secondary-container shadow-sm" onclick="selectSlotWindow('10:30 AM – 11:30 AM')">10:30 AM (Recommended)</button>
+              <button class="slot-pill px-3 py-1 rounded-lg text-xs font-bold bg-white/10 text-white hover:bg-white/20" onclick="selectSlotWindow('01:30 PM – 02:30 PM')">01:30 PM (Mid-day)</button>
+              <button class="slot-pill px-3 py-1 rounded-lg text-xs font-bold bg-white/10 text-white hover:bg-white/20" onclick="selectSlotWindow('04:00 PM – 05:00 PM')">04:00 PM (Evening)</button>
+            </div>
+
+            <!-- Algorithmic Reason Box -->
+            <div class="p-4 rounded-xl bg-white/10 backdrop-blur border border-white/20 relative z-10 flex items-start gap-3 mt-4">
+              <span class="material-symbols-outlined text-secondary-fixed text-2xl shrink-0 mt-0.5">auto_awesome</span>
+              <div class="text-sm">
+                <strong class="text-secondary-fixed">AI Congestion Forecast Model:</strong> Jalandhar Main APMC has reached 94% storage ceiling with a 48-tractor jam (expected wait 3.5 hours). KisanFlow AI has balanced your dispatch to Barnala ABC Hub to maintain continuous grain intake and zero driver dwell time.
+              </div>
+            </div>
+
+            <!-- Primary Action CTA Button -->
+            <div class="mt-6 pt-4 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+              <button class="w-full sm:w-auto px-8 h-14 bg-secondary-container hover:bg-secondary-fixed text-on-secondary-container font-black text-lg rounded-xl shadow-xl transition-all flex items-center justify-center gap-2 transform active:scale-95" onclick="confirmAiSlot()">
+                <span class="material-symbols-outlined text-2xl">check_circle</span>
+                <span>BOOK THIS AI SLOT (ਤੁਰੰਤ ਟੋਕਨ ਲਵੋ)</span>
+              </button>
+              <div class="flex items-center gap-2 text-xs text-emerald-200">
+                <span class="material-symbols-outlined text-sm">lock</span>
+                <span>Slot guaranteed for 60 minutes after confirmation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comparison Table: ABC Centre vs Jalandhar Mandi -->
+          <div class="mt-8 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <h4 class="text-lg font-bold text-on-surface">Regional Mandi Yard Comparison (ਖੇਤਰੀ ਮੰਡੀ ਤੁਲਨਾ)</h4>
+              <span class="text-xs text-on-surface-variant font-medium">Updated every 60 seconds from yard IoT gates</span>
+            </div>
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+              <table class="w-full text-left border-collapse text-sm">
+                <thead>
+                  <tr class="bg-surface-container-low font-bold text-on-surface border-b border-slate-200">
+                    <th class="p-4">Procurement Centre</th>
+                    <th class="p-4">Transit Distance</th>
+                    <th class="p-4">Current Yard Line</th>
+                    <th class="p-4">Avg Wait Time</th>
+                    <th class="p-4">Congestion Forecast</th>
+                    <th class="p-4 text-right">Selection</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  <tr id="row-barnala" class="bg-emerald-50/70 font-semibold">
+                    <td class="p-4">
+                      <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-base">verified</span>
+                        <div>
+                          <span class="font-bold text-on-surface">Barnala Central Yard (ABC-1)</span>
+                          <span class="text-xs text-emerald-700 block font-normal">Fast-Track High Capacity Silo • 4 Weighbridges</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="p-4">2.4 KM</td>
+                    <td class="p-4 text-emerald-800 font-bold">6 Tractors</td>
+                    <td class="p-4 text-primary font-bold">18 Mins</td>
+                    <td class="p-4">
+                      <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">Optimal / Low Congestion</span>
+                    </td>
+                    <td class="p-4 text-right">
+                      <button id="btn-barnala" class="px-4 py-2 bg-primary hover:bg-primary-container text-on-primary text-xs font-bold rounded-lg shadow-sm" onclick="selectMandi('barnala')">Selected</button>
+                    </td>
+                  </tr>
+                  <tr id="row-dhuri" class="hover:bg-slate-50">
+                    <td class="p-4">
+                      <div>
+                        <span class="font-bold text-on-surface">Dhuri Mandi Warehouse</span>
+                        <span class="text-xs text-on-surface-variant block font-normal">State Food Storage Depot</span>
+                      </div>
+                    </td>
+                    <td class="p-4">8.5 KM</td>
+                    <td class="p-4">16 Tractors</td>
+                    <td class="p-4 font-semibold">45 Mins</td>
+                    <td class="p-4">
+                      <span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold">Moderate Flow</span>
+                    </td>
+                    <td class="p-4 text-right">
+                      <button id="btn-dhuri" class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold rounded-lg" onclick="selectMandi('dhuri')">Switch</button>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-red-50/50 opacity-90">
+                    <td class="p-4">
+                      <div>
+                        <span class="font-bold text-error">Jalandhar Main APMC Yard</span>
+                        <span class="text-xs text-red-600 block font-normal">Railway Rake Loading Stoppage</span>
+                      </div>
+                    </td>
+                    <td class="p-4">14.2 KM</td>
+                    <td class="p-4 text-error font-bold">48 Tractors Ahead</td>
+                    <td class="p-4 text-error font-bold">3.5 Hours (Choked)</td>
+                    <td class="p-4">
+                      <span class="px-2.5 py-1 rounded-full bg-red-100 text-red-800 text-xs font-bold">Severe Bottleneck</span>
+                    </td>
+                    <td class="p-4 text-right">
+                      <button class="text-xs text-error font-bold border border-red-200 px-2 py-1 rounded bg-red-50 hover:bg-red-100" onclick="alertBypassedMandi()">Bypassed by AI</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= SCREEN 3: DIGITAL TOKEN PASS (A-027) ================= -->
+        <div class="journey-view hidden flex-col w-full bg-surface-container-lowest rounded-2xl shadow-sm border border-slate-200/90 p-6 md:p-8" id="view-token">
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-primary text-on-primary text-xs font-bold uppercase tracking-wider">Innovation Screen #3</span>
+                <span class="text-xs text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-bold" id="gate-clearance-status">Valid &amp; Verified Gate Clearance</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-extrabold text-on-surface mt-1">Digital Mandi Token Pass (<span class="token-num-disp">A-027</span>)</h2>
+              <p class="text-base text-on-surface-variant">ਡਿਜੀਟਲ ਟੋਕਨ ਪਾਸ • Present at Mandi Gate Optical Barrier Scanner</p>
+            </div>
+            <div class="flex items-center gap-2 bg-primary/10 text-primary px-3.5 py-2 rounded-xl text-sm font-bold" id="barrier-badge">
+              <span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping" id="barrier-ping"></span>
+              <span id="barrier-text">Gate 02 Boom Barrier Linked</span>
+            </div>
+          </div>
+
+          <!-- Audible Alert & Voice Bar -->
+          <div class="mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-xl">notifications_active</span>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-emerald-900 uppercase">Audio Turn Notification • ਸੁਣੋ</span>
+                <p class="text-sm text-emerald-800 font-medium" id="token-audio-script">"ਟੋਕਨ ਨੰਬਰ A-027, ਰਮੇਸ਼ ਕੁਮਾਰ, ਕੰਡੇ ਵੱਲ ਵਧੋ।" (Token A-027 proceed to weighbridge)</p>
+              </div>
+            </div>
+            <button class="px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-sm" onclick="playTokenAudio()">
+              <span class="material-symbols-outlined text-sm">play_arrow</span>
+              <span>Play Punjabi Audio</span>
+            </button>
+          </div>
+
+          <!-- Big High-Visibility Token Pass Card -->
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+            
+            <!-- Left Visual Pass Ticket (7 Cols) -->
+            <div class="md:col-span-7 bg-surface-container-low border-2 border-primary/40 rounded-2xl p-6 flex flex-col justify-between shadow-inner relative overflow-hidden">
+              <div class="w-full flex items-center justify-between pb-3 border-b border-slate-200">
+                <div>
+                  <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Procurement Mandi Yard</span>
+                  <h4 class="text-lg font-black text-on-surface" id="pass-yard-name">Barnala Central Yard (Bay 02)</h4>
+                </div>
+                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded font-bold text-xs">e-NAM ANPR Synced</span>
+              </div>
+
+              <!-- HUGE HIGH CONTRAST TOKEN HERO DISPLAY -->
+              <div class="my-6 py-6 bg-surface-container-lowest rounded-2xl shadow-sm border border-slate-200 flex flex-col items-center justify-center text-center">
+                <span class="text-xs uppercase font-extrabold text-on-surface-variant tracking-widest">ASSIGNED TOKEN NUMBER</span>
+                <div class="flex items-center gap-3 my-1">
+                  <span class="text-5xl md:text-6xl font-black text-primary tracking-tight token-num-disp">A-027</span>
+                  <span class="material-symbols-outlined text-emerald-600 text-4xl">verified</span>
+                </div>
+                <div class="text-base font-bold text-on-surface mt-1">Tractor PB-19-T-4912 • Ramesh Kumar</div>
+                <span class="text-xs text-on-surface-variant" id="pass-slot-text">Slot: 10:30 AM – 11:30 AM • Khewat #442/10</span>
+              </div>
+
+              <!-- Live Status Ribbon Inside Token -->
+              <div class="grid grid-cols-2 gap-3">
+                <div class="p-3 bg-surface-container-lowest rounded-xl border border-slate-200 text-center">
+                  <span class="text-xs text-on-surface-variant uppercase font-bold block">Current Yard Position</span>
+                  <div class="text-xl font-black text-primary mt-0.5" id="token-pos-disp">6 Farmers Ahead</div>
+                  <span class="text-xs text-emerald-700 font-semibold">Moving Fast</span>
+                </div>
+                <div class="p-3 bg-surface-container-lowest rounded-xl border border-slate-200 text-center">
+                  <span class="text-xs text-on-surface-variant uppercase font-bold block">Est. Scale Entry</span>
+                  <div class="text-xl font-black text-on-surface mt-0.5" id="token-countdown-disp">~18 Minutes</div>
+                  <span class="text-xs text-on-surface-variant" id="token-bay-sub">Weighbridge #02</span>
+                </div>
+              </div>
+
+              <!-- Tactile Actions -->
+              <div class="flex items-center gap-3 mt-6 flex-wrap">
+                <button class="flex-1 min-w-[140px] h-12 bg-primary hover:bg-primary-container text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow transition-all" onclick="openGpsRouteModal()">
+                  <span class="material-symbols-outlined text-lg">navigation</span>
+                  <span>Navigate GPS to Gate</span>
+                </button>
+                <button class="flex-1 min-w-[140px] h-12 bg-surface-container hover:bg-surface-container-high text-on-surface font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition-all" onclick="switchView('view-queue')">
+                  <span class="material-symbols-outlined text-lg">timeline</span>
+                  <span>Track Queue</span>
+                </button>
+                <button class="px-4 h-12 bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-bold text-sm rounded-xl flex items-center justify-center gap-1.5 transition-all" onclick="openPrintTokenModal()" title="Print Gate Clearance Pass">
+                  <span class="material-symbols-outlined text-base">print</span>
+                  <span>Print Pass</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Optical QR Code Box & Turn Indicator (5 Cols) -->
+            <div class="md:col-span-5 flex flex-col gap-4">
+              <div class="bg-surface-container-low border border-slate-200 rounded-2xl p-6 flex flex-col items-center text-center justify-between relative overflow-hidden">
+                <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Gate Optical Barrier Scanner</span>
+                
+                <!-- Clean High Contrast SVG QR Code with simulated scan laser overlay -->
+                <div class="my-4 p-4 bg-white rounded-2xl shadow-sm border border-slate-300 flex flex-col items-center justify-center relative overflow-hidden" id="qr-wrapper">
+                  <div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent scanner-line z-20 pointer-events-none" id="scanner-laser"></div>
+                  <svg class="w-44 h-44" fill="none" viewbox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                    <rect fill="white" height="160" rx="12" width="160"></rect>
+                    <!-- Outer Top Left -->
+                    <rect fill="#131b2e" height="40" rx="6" width="40" x="20" y="20"></rect>
+                    <rect fill="white" height="28" rx="3" width="28" x="26" y="26"></rect>
+                    <rect fill="#00652c" height="16" rx="2" width="16" x="32" y="32"></rect>
+                    <!-- Outer Top Right -->
+                    <rect fill="#131b2e" height="40" rx="6" width="40" x="100" y="20"></rect>
+                    <rect fill="white" height="28" rx="3" width="28" x="106" y="26"></rect>
+                    <rect fill="#00652c" height="16" rx="2" width="16" x="112" y="32"></rect>
+                    <!-- Outer Bottom Left -->
+                    <rect fill="#131b2e" height="40" rx="6" width="40" x="20" y="100"></rect>
+                    <rect fill="white" height="28" rx="3" width="28" x="26" y="106"></rect>
+                    <rect fill="#00652c" height="16" rx="2" width="16" x="32" y="112"></rect>
+                    <!-- Internal Matrix Bits -->
+                    <rect fill="#131b2e" height="12" width="12" x="70" y="22"></rect>
+                    <rect fill="#00652c" height="22" width="12" x="70" y="44"></rect>
+                    <rect fill="#131b2e" height="12" width="18" x="22" y="70"></rect>
+                    <rect fill="#00652c" height="14" width="20" x="48" y="70"></rect>
+                    <rect fill="#15803d" height="18" rx="3" width="18" x="76" y="74"></rect>
+                    <rect fill="#131b2e" height="12" width="16" x="102" y="70"></rect>
+                    <rect fill="#00652c" height="20" width="16" x="124" y="70"></rect>
+                    <rect fill="#131b2e" height="16" width="16" x="70" y="102"></rect>
+                    <rect fill="#00652c" height="12" width="22" x="94" y="102"></rect>
+                    <rect fill="#131b2e" height="16" width="16" x="124" y="102"></rect>
+                    <rect fill="#00652c" height="14" width="24" x="70" y="126"></rect>
+                    <rect fill="#131b2e" height="18" width="18" x="102" y="122"></rect>
+                    <rect fill="#15803d" height="14" width="12" x="128" y="126"></rect>
+                  </svg>
+                  <span class="text-xs font-bold text-primary mt-2">PB-19-T-4912 • TOKEN <span class="token-num-disp">A-027</span></span>
+                </div>
+
+                <!-- Simulation Trigger for Judges / Demo -->
+                <button class="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow flex items-center justify-center gap-2 mb-2 transition-all active:scale-95" onclick="simulateGateScan()">
+                  <span class="material-symbols-outlined text-sm">sensors</span>
+                  <span>SIMULATE GATE SCAN / OPEN BARRIER</span>
+                </button>
+
+                <p class="text-xs text-on-surface-variant font-medium">
+                  The boom barrier will auto-open as your tractor approaches Gate 02. No physical paperwork required.
+                </p>
+              </div>
+
+              <!-- Offline USSD Backup Token Card -->
+              <div class="bg-surface-container-low border border-slate-200 rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:bg-surface-container transition-colors" onclick="openSmsModal()">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-outlined text-primary text-xl">sms</span>
+                  <div class="flex flex-col text-left">
+                    <span class="text-xs font-bold text-on-surface">SMS Fallback Synced</span>
+                    <span class="text-xs text-on-surface-variant font-mono">SMS: "TOKEN <span class="token-num-disp">A-027</span>" to 7738299899</span>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-1 rounded">Delivered</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= SCREEN 4: LIVE QUEUE TRACKING & DWELL TIME ================= -->
+        <div class="journey-view hidden flex-col w-full bg-surface-container-lowest rounded-2xl shadow-sm border border-slate-200/90 p-6 md:p-8" id="view-queue">
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-primary text-on-primary text-xs font-bold uppercase tracking-wider">Innovation Screen #4</span>
+                <span class="text-xs text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-bold">Yard Sensor Telemetry</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-extrabold text-on-surface mt-1">Live Queue Tracking &amp; Dwell Time</h2>
+              <p class="text-base text-on-surface-variant">ਅਸਲ ਸਮੇਂ ਦੀ ਕਤਾਰ • Real-time weighbridge status and unloading bay monitor</p>
+            </div>
+            <div class="flex items-center gap-2 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200 text-xs font-bold text-emerald-800">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-ping"></span>
+              <span>Weighbridge #02 Sensor Live</span>
+            </div>
+          </div>
+
+          <!-- VISUAL NODE PROGRESS FLOW: Completed -> Weighing -> Your Turn -> In Yard -->
+          <div class="mt-6 p-6 rounded-2xl bg-surface-container-low border border-slate-200 flex flex-col gap-6">
+            <div class="flex items-center justify-between">
+              <h4 class="text-base font-bold text-on-surface uppercase tracking-wider">Mandi Queue Pipeline (ਤੋਲ ਪੜਾਅ)</h4>
+              <div class="flex items-center gap-3">
+                <span class="text-xs font-bold text-primary">Live Turn Countdown: <span id="queue-countdown-disp">~18 Mins</span></span>
+                <button class="px-3 py-1 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary-container shadow-sm flex items-center gap-1" onclick="advanceQueueStep()" title="Simulate advancing queue sequence">
+                  <span class="material-symbols-outlined text-xs">fast_forward</span>
+                  <span>Advance Queue</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Node Progress Bar -->
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 relative" id="queue-nodes-grid">
+              <!-- Step 1: Gate Check -->
+              <div id="node-1" class="p-4 rounded-xl bg-surface-container-lowest border border-slate-200 flex flex-col gap-2 relative">
+                <div class="flex items-center justify-between">
+                  <span class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold">
+                    <span class="material-symbols-outlined text-sm">check</span>
+                  </span>
+                  <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">Completed</span>
+                </div>
+                <div class="font-bold text-sm text-on-surface mt-1">1. Gate Check &amp; ANPR</div>
+                <span class="text-xs text-on-surface-variant">Tractor PB-19-T-4912 optical pass cleared</span>
+              </div>
+
+              <!-- Step 2: Tare Weighing -->
+              <div id="node-2" class="p-4 rounded-xl bg-surface-container-lowest border border-slate-200 flex flex-col gap-2 relative">
+                <div class="flex items-center justify-between">
+                  <span class="w-7 h-7 rounded-full bg-amber-500 text-white flex items-center justify-center text-xs font-bold">
+                    <span class="material-symbols-outlined text-sm">scale</span>
+                  </span>
+                  <span class="text-xs font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded" id="node-2-status">On Scale</span>
+                </div>
+                <div class="font-bold text-sm text-on-surface mt-1">2. Tare Weighing</div>
+                <span class="text-xs text-on-surface-variant" id="node-2-desc">Token A-026 on scale right now (Tare #9921)</span>
+              </div>
+
+              <!-- Step 3: Your Turn (NEXT) -->
+              <div id="node-3" class="p-4 rounded-xl bg-primary text-on-primary border-2 border-primary-container flex flex-col gap-2 shadow-lg relative transform sm:-translate-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-xs font-black">3</span>
+                  <span class="text-xs font-bold bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded uppercase tracking-wider" id="node-3-badge">You (Next)</span>
+                </div>
+                <div class="font-bold text-base mt-1">Token <span class="token-num-disp">A-027</span> (<span id="node-3-sub">Your Turn</span>)</div>
+                <span class="text-xs text-on-primary-container" id="node-3-desc">Proceed toward Scale #02 Entry Lane</span>
+              </div>
+
+              <!-- Step 4: Unload & Moisture Assay -->
+              <div id="node-4" class="p-4 rounded-xl bg-surface-container-lowest border border-slate-200 flex flex-col gap-2 relative opacity-70">
+                <div class="flex items-center justify-between">
+                  <span class="w-7 h-7 rounded-full bg-slate-300 text-slate-700 flex items-center justify-center text-xs font-bold">4</span>
+                  <span class="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded" id="node-4-status">Upcoming</span>
+                </div>
+                <div class="font-bold text-sm text-on-surface mt-1">4. Unload &amp; Moisture Assay</div>
+                <span class="text-xs text-on-surface-variant">Bay 02 automated pneumatic pit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Digital Weighbridge Scale Panel -->
+          <div class="mt-6 p-5 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 text-white border border-slate-700 shadow-md">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
+                  <span class="material-symbols-outlined text-2xl">scale</span>
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Live Calibrated Scale #02 Readout</span>
+                  <h4 class="text-lg font-bold">Electronic Weighbridge Telemetry</h4>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="text-right">
+                  <span class="text-xs text-slate-400 block font-mono">CERTIFIED NET PAYLOAD</span>
+                  <span class="text-2xl md:text-3xl font-black text-emerald-400 font-mono tracking-tight" id="scale-live-reading">11,000 KG</span>
+                </div>
+                <button class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl shadow transition-all" onclick="simulateScaleCycle()">
+                  Re-Tare Scale
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Operator and Telemetry Details -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-slate-200 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Scale Operator On Duty</span>
+                  <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">Gate 02 Desk</span>
+                </div>
+                <h4 class="text-lg font-bold text-on-surface mt-2">Sukhwinder Singh • Officer ID #PB-882</h4>
+                <p class="text-xs text-on-surface-variant mt-1">Punjab State Warehousing Corporation • Calibrated Electronic Platform</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
+                <span class="text-on-surface-variant">Scale Tare Verification:</span>
+                <span class="font-bold text-emerald-800">ISO 9001 / NABL Certified</span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-slate-200 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Moisture &amp; Quality Assay</span>
+                  <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded cursor-pointer hover:bg-emerald-200" onclick="testMoistureAssay()">Run AI Assay</span>
+                </div>
+                <div class="text-2xl font-black text-on-surface mt-2" id="moisture-val-disp">11.2% Moisture Content</div>
+                <p class="text-xs text-on-surface-variant mt-1">Strictly below 12.0% maximum allowable mandi tolerance. Full MSP guaranteed.</p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-xs">
+                <span class="text-on-surface-variant">Foreign Matter / Refraction:</span>
+                <span class="font-bold text-emerald-800">0.3% (Clean Sharbati Grade-A)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Step Switch CTA -->
+          <div class="mt-6 flex flex-col sm:flex-row items-center justify-between p-4 bg-primary/5 rounded-xl border border-primary/20 gap-3">
+            <span class="text-sm font-semibold text-on-surface">After weigh-in and quality check, view the final bank payout:</span>
+            <button class="px-5 py-2.5 bg-primary hover:bg-primary-container text-white text-sm font-bold rounded-lg shadow transition-all flex items-center gap-2" onclick="switchView('view-tracker')">
+              <span>Go to DBT Payment Tracker</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= SCREEN 5: END-TO-END PRODUCE & DBT PAYMENT TRACKER ================= -->
+        <div class="journey-view hidden flex-col w-full bg-surface-container-lowest rounded-2xl shadow-sm border border-slate-200/90 p-6 md:p-8" id="view-tracker">
+          <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-secondary text-on-secondary text-xs font-bold uppercase tracking-wider">Innovation Screen #5</span>
+                <span class="text-xs text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-bold">Public Financial Management System (PFMS)</span>
+              </div>
+              <h2 class="text-2xl md:text-3xl font-extrabold text-on-surface mt-1">Produce Acceptance &amp; DBT Payment Tracker</h2>
+              <p class="text-base text-on-surface-variant">ਤੁਰੰਤ ਬੈਂਕ ਖਾਤੇ ਵਿੱਚ ਭੁਗਤਾਨ • Complete transparent lifecycle from weighbridge to bank deposit</p>
+            </div>
+            <div class="flex items-center gap-2 bg-emerald-100 text-emerald-900 px-3.5 py-2 rounded-xl text-sm font-bold">
+              <span class="material-symbols-outlined text-base text-emerald-700">task_alt</span>
+              <span>Payment Disbursed via PFMS</span>
+            </div>
+          </div>
+
+          <!-- Big DBT Realized Deposit Banner -->
+          <div class="mt-6 p-6 rounded-2xl bg-gradient-to-br from-emerald-50 via-white to-emerald-100/50 border-2 border-emerald-500/40 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex flex-col">
+              <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider" id="dbt-calc-sub">Final Realized Amount (110 Quintals @ ₹2,275/Qtl)</span>
+              <div class="text-4xl md:text-5xl font-black text-primary tracking-tight mt-1 total-val-disp">₹2,50,250.00</div>
+              <div class="flex items-center gap-2 mt-2 text-sm text-on-surface">
+                <span class="material-symbols-outlined text-emerald-700 text-lg">account_balance</span>
+                <span class="font-bold">Bank of Baroda • A/C Ending in **4912</span>
+              </div>
+              <button class="text-left text-xs text-primary font-mono mt-1 hover:underline flex items-center gap-1" onclick="openPfmsModal()">
+                <span>PFMS UTR: BARB202604081982 • Status: SUCCESS</span>
+                <span class="material-symbols-outlined text-xs">open_in_new</span>
+              </button>
+            </div>
+            <div class="flex flex-col gap-2 shrink-0">
+              <button class="h-12 px-5 bg-primary hover:bg-primary-container text-white text-sm font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2 transform active:scale-95" onclick="openJFormModal()">
+                <span class="material-symbols-outlined text-base">download</span>
+                <span>Download Digital J-Form Receipt</span>
+              </button>
+              <span class="text-center text-xs text-on-surface-variant">Income Tax Exemption Form Attached</span>
+            </div>
+          </div>
+
+          <!-- End-to-End Milestone Timeline with Checkmarks -->
+          <div class="mt-8 flex flex-col gap-4">
+            <h4 class="text-lg font-bold text-on-surface">Verified Procurement Milestones (ਮੰਡੀ ਪ੍ਰਕਿਰਿਆ ਪੜਾਅ)</h4>
+            <div class="relative pl-6 flex flex-col gap-4">
+              <!-- Vertical Timeline track line -->
+              <div class="absolute left-3 top-3 bottom-3 w-0.5 bg-primary/25"></div>
+
+              <!-- Milestone 1 -->
+              <div class="relative flex items-start gap-4">
+                <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shrink-0 z-10">
+                  <span class="material-symbols-outlined text-xs">done</span>
+                </div>
+                <div class="flex-1 bg-surface-container-low p-4 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <h5 class="font-bold text-sm text-on-surface">1. Gate Check &amp; ANPR Verification</h5>
+                    <p class="text-xs text-on-surface-variant">Vehicle PB-19-T-4912 optical boom barrier clearance at Gate 02</p>
+                  </div>
+                  <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-1 rounded">10:15 AM • Completed</span>
+                </div>
+              </div>
+
+              <!-- Milestone 2 -->
+              <div class="relative flex items-start gap-4">
+                <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shrink-0 z-10">
+                  <span class="material-symbols-outlined text-xs">done</span>
+                </div>
+                <div class="flex-1 bg-surface-container-low p-4 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <h5 class="font-bold text-sm text-on-surface">2. Tare Weighbridge Calibration</h5>
+                    <p class="text-xs text-on-surface-variant">Gross Weight: 14,800 KG • Tare Vehicle Weight: 3,800 KG (Weight Slip #W-99201)</p>
+                  </div>
+                  <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-1 rounded">10:32 AM • Completed</span>
+                </div>
+              </div>
+
+              <!-- Milestone 3 -->
+              <div class="relative flex items-start gap-4">
+                <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shrink-0 z-10">
+                  <span class="material-symbols-outlined text-xs">done</span>
+                </div>
+                <div class="flex-1 bg-surface-container-low p-4 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <h5 class="font-bold text-sm text-on-surface">3. Quality Test &amp; Moisture Assay</h5>
+                    <p class="text-xs text-on-surface-variant">AI Spectrometry Result: <strong>11.2% Moisture (Passed)</strong> • Zero dockage penalty</p>
+                  </div>
+                  <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-1 rounded">10:48 AM • Approved</span>
+                </div>
+              </div>
+
+              <!-- Milestone 4 -->
+              <div class="relative flex items-start gap-4">
+                <div class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shrink-0 z-10">
+                  <span class="material-symbols-outlined text-xs">done</span>
+                </div>
+                <div class="flex-1 bg-surface-container-low p-4 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <h5 class="font-bold text-sm text-on-surface">4. Mandi Acceptance &amp; J-Form Generation</h5>
+                    <p class="text-xs text-on-surface-variant">Net Produce Accepted: <strong id="m4-accepted-produce">110.0 Quintals Sharbati Wheat</strong> • J-Form #PB-2026-9921</p>
+                  </div>
+                  <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-1 rounded">11:00 AM • Generated</span>
+                </div>
+              </div>
+
+              <!-- Milestone 5 (DBT Direct Bank Transfer) -->
+              <div class="relative flex items-start gap-4">
+                <div class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold shrink-0 z-10 ring-4 ring-emerald-200">
+                  <span class="material-symbols-outlined text-xs">check</span>
+                </div>
+                <div class="flex-1 bg-emerald-50 p-4 rounded-xl border-2 border-emerald-400 flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-sm">
+                  <div>
+                    <h5 class="font-bold text-base text-emerald-900">5. PFMS / DBT Bank Transfer Executed</h5>
+                    <p class="text-xs text-emerald-800 font-medium"><span class="total-val-disp font-bold">₹2,50,250</span> credited directly to Bank of Baroda A/C **4912 (UTR: BARB202604081982)</p>
+                  </div>
+                  <span class="text-xs font-black text-white bg-emerald-700 px-3 py-1 rounded-full uppercase tracking-wider">11:15 AM • Settled</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Right Side: AI Yard Telemetry, Field Feed & Interactive Simulation Switches (4 Columns) -->
+      <div class="lg:col-span-4 flex flex-col gap-6">
+        
+        <!-- Mandi CCTV Live Video Feed Card with Camera Switcher -->
+        <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+          <div class="relative">
+            <img id="cctv-image" class="w-full h-44 object-cover transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdRhVF8JjeRkGtgyU4azmon_mEsABDRW6PFMx8N8X2Kjz9Ls-GXlWy1kHNHcMhDGTKgpmoja_XK83C6pv8dePnin1ipU9-25leX8leC4WHOK-9KODP4dnsxK-JAf_R60RM2vM8KbiPg_yTqKfdLKj1S1aLPK1toBOYCjLEq6QAWiVuPNBWdxBQDhnxzS95MVmzaZEdA-yZrZrthwtCaYMXmxvFCn4u_89LoBigaV5KS0kUTIpPfw" alt="CCTV Feed"/>
+            <div class="absolute top-3 left-3 bg-black/70 backdrop-blur text-white px-2.5 py-1 rounded-md text-xs font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+              <span id="cctv-cam-title">CCTV Gate 02 Live Feed</span>
+            </div>
+            <div class="absolute top-3 right-3 bg-black/60 backdrop-blur text-emerald-400 px-2 py-0.5 rounded text-[11px] font-mono" id="cctv-clock">
+              LIVE 10:32:14 AM
+            </div>
+            <div class="absolute bottom-3 right-3 bg-emerald-900/90 text-white px-2.5 py-1 rounded-md text-xs font-bold">
+              Barnala Central Hub
+            </div>
+          </div>
+          
+          <!-- CCTV Camera Selector Buttons -->
+          <div class="p-3 bg-surface-container-low border-t border-slate-200 flex items-center justify-between gap-1">
+            <button class="cctv-btn px-2 py-1 rounded text-xs font-bold bg-primary text-white" onclick="switchCctv(0)">Gate 02</button>
+            <button class="cctv-btn px-2 py-1 rounded text-xs font-medium text-on-surface hover:bg-surface-container" onclick="switchCctv(1)">Weighbridge</button>
+            <button class="cctv-btn px-2 py-1 rounded text-xs font-medium text-on-surface hover:bg-surface-container" onclick="switchCctv(2)">Silo Elevator</button>
+            <button class="cctv-btn px-2 py-1 rounded text-xs font-medium text-on-surface hover:bg-surface-container" onclick="switchCctv(3)">Highway Approach</button>
+          </div>
+
+          <div class="p-4 flex flex-col gap-1 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-on-surface text-sm" id="cctv-status-title">Automated Unloader Bay 02</span>
+              <span class="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded">Flow: Normal</span>
+            </div>
+            <p class="text-on-surface-variant" id="cctv-status-desc">Pneumatic intake running at 85% continuous capacity. No queue buildup outside outer perimeter.</p>
+          </div>
+        </div>
+
+        <!-- SIH Judges Interactive Flow Simulator Controller -->
+        <div class="bg-surface-container-lowest rounded-2xl shadow-sm border-2 border-primary/30 p-5 flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-xl">touch_app</span>
+              <h3 class="font-bold text-base text-on-surface">SIH 2026 Flow Simulator</h3>
+            </div>
+            <span class="text-xs bg-primary/10 text-primary font-bold px-2 py-0.5 rounded">Judges Demo</span>
+          </div>
+          <p class="text-xs text-on-surface-variant">
+            Click any stage below to inspect how the dynamic balancing algorithm seamlessly navigates the farmer from quota to instant DBT:
+          </p>
+          <div class="grid grid-cols-1 gap-2">
+            <button class="p-2.5 text-left bg-surface-container-low hover:bg-surface-container rounded-xl border border-slate-200 text-xs font-bold text-on-surface transition-all flex items-center justify-between" onclick="switchView('view-home')">
+              <span>1. Farmer Home &amp; Quota</span>
+              <span class="material-symbols-outlined text-sm text-primary">arrow_forward</span>
+            </button>
+            <button class="p-2.5 text-left bg-emerald-50 hover:bg-emerald-100 rounded-xl border border-emerald-300 text-xs font-bold text-emerald-900 transition-all flex items-center justify-between" onclick="switchView('view-recommend')">
+              <span>2. AI Recommendation (Core Engine)</span>
+              <span class="material-symbols-outlined text-sm text-emerald-700">stars</span>
+            </button>
+            <button class="p-2.5 text-left bg-surface-container-low hover:bg-surface-container rounded-xl border border-slate-200 text-xs font-bold text-on-surface transition-all flex items-center justify-between" onclick="switchView('view-token')">
+              <span>3. Digital Token Pass (<span class="token-num-disp">A-027</span>)</span>
+              <span class="material-symbols-outlined text-sm text-primary">qr_code</span>
+            </button>
+            <button class="p-2.5 text-left bg-surface-container-low hover:bg-surface-container rounded-xl border border-slate-200 text-xs font-bold text-on-surface transition-all flex items-center justify-between" onclick="switchView('view-queue')">
+              <span>4. Live Queue &amp; Dwell Tracking</span>
+              <span class="material-symbols-outlined text-sm text-primary">hourglass_top</span>
+            </button>
+            <button class="p-2.5 text-left bg-surface-container-low hover:bg-surface-container rounded-xl border border-slate-200 text-xs font-bold text-on-surface transition-all flex items-center justify-between" onclick="switchView('view-tracker')">
+              <span>5. Produce Acceptance &amp; DBT Settlement</span>
+              <span class="material-symbols-outlined text-sm text-primary">payments</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Real-Time Efficiency Metrics -->
+        <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-slate-200 p-5 flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">KrishiNex Impact Telemetry</span>
+            <span class="text-xs bg-slate-100 font-semibold text-slate-700 px-2 py-0.5 rounded">v2.6 Live</span>
+          </div>
+          <!-- Metric 1 -->
+          <div class="flex flex-col gap-1.5">
+            <div class="flex justify-between text-xs font-bold">
+              <span class="text-on-surface">Average Dwell Time Reduction</span>
+              <span class="text-primary">-82% (3.5h → 18m)</span>
+            </div>
+            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+              <div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 82%;"></div>
+            </div>
+            <span class="text-xs text-on-surface-variant">Prevented 12,400 diesel tractor idling hours this season.</span>
+          </div>
+          <!-- Metric 2 -->
+          <div class="flex flex-col gap-1.5 pt-2 border-t border-slate-100">
+            <div class="flex justify-between text-xs font-bold">
+              <span class="text-on-surface">Distress Sale Prevention</span>
+              <span class="text-secondary">99.8% MSP Realization</span>
+            </div>
+            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+              <div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 98%;"></div>
+            </div>
+            <span class="text-xs text-on-surface-variant">Zero middleman deductions through direct PFMS bank transfer.</span>
+          </div>
+        </div>
+
+        <!-- Offline & USSD Accessibility Pill -->
+        <div class="bg-emerald-950 text-white rounded-2xl p-5 shadow-sm flex flex-col gap-3">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary-fixed text-xl">signal_cellular_alt_1_bar</span>
+            <span class="font-bold text-sm">Low Connectivity / Feature Phone Mode</span>
+          </div>
+          <p class="text-xs text-emerald-100">
+            For rural belts without smartphone access, farmers can dial this toll-free code to book and hear token turns:
+          </p>
+          <button class="p-3 bg-white/10 hover:bg-white/20 rounded-xl text-center font-mono font-bold text-lg text-secondary-container tracking-wider transition-colors cursor-pointer" onclick="openUssdModal()" title="Click to test interactive USSD phone simulator">
+            *99*2026*8819#
+          </button>
+          <span class="text-xs text-emerald-200 text-center">Auto-reads queue position in Punjabi / Hindi / English</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- ================= MODALS & POPUPS ================= -->
+
+<!-- 1. Farmer AgriStack Profile Modal -->
+<div id="modal-farmer-profile" class="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="bg-surface-container-lowest rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 flex flex-col gap-4 max-h-[90vh] overflow-y-auto">
+    <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-2xl">verified_user</span>
+        <h3 class="text-lg font-bold text-on-surface">AgriStack Farmer Identity Profile</h3>
+      </div>
+      <button onclick="closeModal('modal-farmer-profile')" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    
+    <div class="flex items-center gap-4 bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+      <img alt="Farmer Ramesh Kumar" class="w-16 h-16 rounded-full object-cover ring-2 ring-emerald-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNQV1-g6iORh4sAf9yieIv7_2MlS6-M0XK47n3RvNwDXtAI2Es1SqVJBjutFGmmXydwD6jdn4lLp0dlnq7wXStvzm58BulLxwM6MoqmmCRUHiIOCrm1rIit36okyV6W3nzZtfRq-a7XJbrJ8zQV82UNuCUzVkOpq92LGCco-IgsoJAzyOI1IDXx8wgMlgySEIVDVdeLGyvwqQmglpm62D9GweywHnXFGAvn4uJc_3_pytwJwXI5g"/>
+      <div>
+        <h4 class="text-lg font-bold text-on-surface">Ramesh Kumar</h4>
+        <span class="text-xs font-mono text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-bold">AgriStack ID: PB-2026-8819</span>
+        <p class="text-xs text-on-surface-variant mt-1">Village: Barnala Rural • District: Barnala (Punjab)</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3 text-xs">
+      <div class="p-3 bg-surface-container-low rounded-xl">
+        <span class="text-on-surface-variant uppercase font-semibold block">Land Parcel Khewat</span>
+        <span class="text-sm font-bold text-on-surface">#442/10 (8.5 Acres)</span>
+      </div>
+      <div class="p-3 bg-surface-container-low rounded-xl">
+        <span class="text-on-surface-variant uppercase font-semibold block">Vehicle Registered</span>
+        <span class="text-sm font-bold text-on-surface">PB-19-T-4912 (Tractor)</span>
+      </div>
+      <div class="p-3 bg-surface-container-low rounded-xl">
+        <span class="text-on-surface-variant uppercase font-semibold block">Aadhaar Linked Bank</span>
+        <span class="text-sm font-bold text-on-surface">Bank of Baroda **4912</span>
+      </div>
+      <div class="p-3 bg-surface-container-low rounded-xl">
+        <span class="text-on-surface-variant uppercase font-semibold block">Soil Health Status</span>
+        <span class="text-sm font-bold text-emerald-700">Grade-A Certified (2026)</span>
+      </div>
+    </div>
+
+    <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900">
+      <strong>e-NAM KYC Status:</strong> Biometric iris &amp; mobile OTP verified. Direct DBT route verified with NPCI payment switch.
+    </div>
+
+    <button onclick="closeModal('modal-farmer-profile')" class="w-full py-2.5 bg-primary text-white rounded-xl font-bold text-sm hover:bg-primary-container shadow">
+      Close Profile
+    </button>
+  </div>
+</div>
+
+<!-- 2. Interactive GPS Route Navigation Modal -->
+<div id="modal-gps-route" class="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="bg-surface-container-lowest rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 flex flex-col gap-4">
+    <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-2xl">navigation</span>
+        <div>
+          <h3 class="text-lg font-bold text-on-surface">Live Mandi GPS Navigation</h3>
+          <span class="text-xs text-on-surface-variant">Green Corridor to Barnala Central Yard Gate 02</span>
+        </div>
+      </div>
+      <button onclick="closeModal('modal-gps-route')" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <!-- Interactive Simulated Route Canvas / Map Visual -->
+    <div class="relative w-full h-48 bg-slate-900 rounded-xl overflow-hidden border border-slate-700 flex items-center justify-center">
+      <!-- Simulated Roads and Route Line -->
+      <svg class="w-full h-full" viewBox="0 0 500 200">
+        <path d="M 30,160 Q 150,140 220,100 T 470,40" fill="none" stroke="#005323" stroke-width="12" stroke-linecap="round"/>
+        <path d="M 30,160 Q 150,140 220,100 T 470,40" fill="none" stroke="#6bff8f" stroke-width="6" stroke-dasharray="8 6" stroke-linecap="round"/>
+        
+        <!-- Waypoint: Farm -->
+        <circle cx="30" cy="160" r="10" fill="#15803d"/>
+        <text x="30" y="190" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">Farm (Barnala Rural)</text>
+        
+        <!-- Moving Tractor Dot -->
+        <circle cx="220" cy="100" r="8" fill="#ffffff">
+          <animate attributeName="cx" values="30;470;30" dur="8s" repeatCount="indefinite"/>
+          <animate attributeName="cy" values="160;40;160" dur="8s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- Destination Gate 02 -->
+        <circle cx="470" cy="40" r="12" fill="#ba1a1a"/>
+        <text x="440" y="25" fill="#ffffff" font-size="12" font-weight="bold">Gate 02 (Bay 02)</text>
+      </svg>
+      
+      <div class="absolute bottom-2 left-2 bg-black/80 px-2 py-1 rounded text-white text-[11px] font-mono">
+        Speed: 22 km/h • ETA: 7 mins • Distance: 2.4 KM
+      </div>
+      <div class="absolute top-2 right-2 bg-emerald-700/90 text-white px-2 py-0.5 rounded text-[11px] font-bold">
+        Traffic: Low / Green Corridor
+      </div>
+    </div>
+
+    <!-- Turn-by-Turn Steps -->
+    <div class="flex flex-col gap-2 text-xs">
+      <div class="flex items-center gap-3 p-2.5 bg-emerald-50 rounded-lg border border-emerald-200">
+        <span class="material-symbols-outlined text-emerald-700 text-lg">straight</span>
+        <div>
+          <strong>In 400m:</strong> Continue straight on Barnala Mandi Link Road.
+        </div>
+      </div>
+      <div class="flex items-center gap-3 p-2.5 bg-surface-container-low rounded-lg">
+        <span class="material-symbols-outlined text-primary text-lg">turn_right</span>
+        <div>
+          <strong>In 1.2 KM:</strong> Turn right into Mandi Dedicated Green Corridor (Lane #02).
+        </div>
+      </div>
+      <div class="flex items-center gap-3 p-2.5 bg-surface-container-low rounded-lg">
+        <span class="material-symbols-outlined text-primary text-lg">door_front</span>
+        <div>
+          <strong>In 2.4 KM:</strong> Arrive at Optical Barrier Gate 02. Automatic boom barrier will scan QR.
+        </div>
+      </div>
+    </div>
+
+    <button onclick="closeModal('modal-gps-route')" class="w-full py-2.5 bg-primary text-white rounded-xl font-bold text-sm hover:bg-primary-container shadow">
+      Got It • Return to Portal
+    </button>
+  </div>
+</div>
+
+<!-- 3. Official Punjab APMC Form 'J' Receipt Modal (Printable) -->
+<div id="modal-jform" class="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div id="printable-modal" class="bg-white text-slate-900 rounded-2xl max-w-2xl w-full p-6 md:p-8 shadow-2xl border border-slate-300 flex flex-col gap-4 max-h-[95vh] overflow-y-auto">
+    <!-- Header with Punjab State Mandi Board Emblem -->
+    <div class="flex items-start justify-between border-b-2 border-slate-800 pb-4">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-emerald-800 text-white flex items-center justify-center font-bold text-xl">
+          <span class="material-symbols-outlined text-2xl">agriculture</span>
+        </div>
+        <div>
+          <h2 class="text-xl font-black uppercase tracking-tight text-slate-900">PUNJAB STATE AGRICULTURAL MARKETING BOARD</h2>
+          <h3 class="text-xs font-bold text-slate-700 uppercase">Agricultural Produce Market Committee (APMC) Barnala</h3>
+          <p class="text-[11px] text-slate-500">Form 'J' (See Rule 24(1) of Punjab Agricultural Produce Markets General Rules)</p>
+        </div>
+      </div>
+      <button onclick="closeModal('modal-jform')" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 no-print">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <!-- Serial & Metadata -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs py-2 border-b border-slate-200">
+      <div>
+        <span class="text-slate-500 block">J-Form Serial:</span>
+        <strong class="font-mono text-emerald-800">PB-2026-9921</strong>
+      </div>
+      <div>
+        <span class="text-slate-500 block">Date &amp; Time:</span>
+        <strong id="jform-date">Today • 11:00 AM</strong>
+      </div>
+      <div>
+        <span class="text-slate-500 block">Mandi Centre:</span>
+        <strong>Barnala Central Hub</strong>
+      </div>
+      <div>
+        <span class="text-slate-500 block">Purchasing Agency:</span>
+        <strong class="text-primary">FCI / PUNSUP</strong>
+      </div>
+    </div>
+
+    <!-- Farmer Particulars -->
+    <div class="bg-slate-50 p-3 rounded-xl text-xs flex flex-col gap-1 border border-slate-200">
+      <div class="flex justify-between">
+        <span>Farmer Name: <strong>Ramesh Kumar</strong></span>
+        <span>AgriStack ID: <strong class="font-mono">PB-2026-8819</strong></span>
+      </div>
+      <div class="flex justify-between">
+        <span>Vehicle No: <strong>PB-19-T-4912</strong></span>
+        <span>Aadhaar PFMS Seeded A/C: <strong>Bank of Baroda **4912</strong></span>
+      </div>
+    </div>
+
+    <!-- Produce Breakdown Table -->
+    <table class="w-full text-left border-collapse text-xs mt-2 border border-slate-300">
+      <thead>
+        <tr class="bg-slate-100 font-bold border-b border-slate-300">
+          <th class="p-2 border-r border-slate-300">Commodity Description</th>
+          <th class="p-2 border-r border-slate-300">Weight (Qtl)</th>
+          <th class="p-2 border-r border-slate-300">Moisture (%)</th>
+          <th class="p-2 border-r border-slate-300">MSP Rate</th>
+          <th class="p-2 border-r border-slate-300">Govt Bonus</th>
+          <th class="p-2 text-right">Total Settlement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="p-2 border-r border-slate-300" id="jform-crop-name">Wheat (Sharbati Grade-A)</td>
+          <td class="p-2 border-r border-slate-300 font-bold" id="jform-quota">110.0 Qtl</td>
+          <td class="p-2 border-r border-slate-300 text-emerald-700 font-bold">11.2% (Pass)</td>
+          <td class="p-2 border-r border-slate-300" id="jform-msp">₹2,275.00</td>
+          <td class="p-2 border-r border-slate-300 font-semibold text-emerald-800">+₹150.00</td>
+          <td class="p-2 text-right font-black text-emerald-800 text-sm total-val-disp">₹2,50,250.00</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="bg-emerald-50 font-bold text-xs">
+          <td colspan="5" class="p-2 text-right border-r border-slate-300">NET REALIZED DBT AMOUNT (Zero Deductions):</td>
+          <td class="p-2 text-right font-black text-base text-primary total-val-disp">₹2,50,250.00</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- Digital PFMS Signature Strip -->
+    <div class="flex items-center justify-between text-xs pt-2 border-t border-slate-200">
+      <div class="flex flex-col">
+        <span class="text-slate-500">PFMS Transaction Reference:</span>
+        <span class="font-mono font-bold text-primary">BARB202604081982 (Direct Credit)</span>
+        <span class="text-[10px] text-slate-400">Exempt from Income Tax under Sec 10(1)</span>
+      </div>
+      <div class="text-right">
+        <span class="text-emerald-800 font-bold flex items-center gap-1 justify-end">
+          <span class="material-symbols-outlined text-sm">verified</span> Digitally Signed
+        </span>
+        <span class="text-[11px] text-slate-500">Secretary, Market Committee Barnala</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-200 no-print">
+      <button onclick="window.print()" class="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl font-bold text-sm flex items-center gap-2 shadow">
+        <span class="material-symbols-outlined text-sm">print</span>
+        <span>Print J-Form</span>
+      </button>
+      <button onclick="closeModal('modal-jform')" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-sm">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 4. Interactive USSD Feature Phone Simulator Modal -->
+<div id="modal-ussd" class="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="bg-slate-900 text-white rounded-3xl max-w-xs w-full p-5 shadow-2xl border-4 border-slate-700 flex flex-col gap-3">
+    <div class="flex items-center justify-between text-xs pb-2 border-b border-slate-800">
+      <span class="font-mono text-emerald-400">●●● KisanFlow USSD</span>
+      <button onclick="closeModal('modal-ussd')" class="text-slate-400 hover:text-white">✕</button>
+    </div>
+
+    <!-- USSD Screen View -->
+    <div class="bg-emerald-950 p-4 rounded-xl border border-emerald-800 font-mono text-xs text-emerald-300 flex flex-col gap-2 min-h-[140px]" id="ussd-screen">
+      <span class="font-bold border-b border-emerald-800 pb-1">-- KISANFLOW AI MENU --</span>
+      <p>1. Token A-027 Status<br/>2. Current Yard Queue<br/>3. Moisture Assay Result<br/>4. DBT Settlement UTR</p>
+      <div class="mt-auto flex items-center gap-1">
+        <span>Command:</span>
+        <input type="text" id="ussd-input" maxlength="2" class="w-12 bg-black/40 border border-emerald-600 px-1 text-center text-white outline-none rounded" placeholder="1"/>
+      </div>
+    </div>
+
+    <!-- Keypad -->
+    <div class="grid grid-cols-3 gap-2 text-sm font-bold">
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('1')">1</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('2')">2</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('3')">3</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('4')">4</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('5')">5</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('6')">6</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('7')">7</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('8')">8</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('9')">9</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('*')">*</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('0')">0</button>
+      <button class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl" onclick="pressUssdKey('#')">#</button>
+    </div>
+
+    <div class="flex items-center gap-2 pt-1">
+      <button onclick="submitUssd()" class="flex-1 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-xl font-bold text-xs shadow">Send</button>
+      <button onclick="resetUssd()" class="flex-1 py-2 bg-slate-700 hover:bg-slate-600 rounded-xl font-bold text-xs">Clear</button>
+    </div>
+  </div>
+</div>
+
+<!-- 5. PFMS Central Settlement Ledger Modal -->
+<div id="modal-pfms" class="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="bg-surface-container-lowest rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 flex flex-col gap-4">
+    <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-2xl">account_balance</span>
+        <h3 class="text-lg font-bold text-on-surface">PFMS Central Settlement Audit</h3>
+      </div>
+      <button onclick="closeModal('modal-pfms')" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 flex flex-col gap-2 text-xs">
+      <div class="flex justify-between font-bold">
+        <span>Payment Gateway:</span>
+        <span class="text-emerald-800">NPCI Aadhaar Payment Bridge (APB)</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Unique Transaction Ref (UTR):</span>
+        <span class="font-mono font-bold text-primary">BARB202604081982</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Beneficiary:</span>
+        <span>Ramesh Kumar (**4912)</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Disbursed Amount:</span>
+        <span class="font-bold text-emerald-700 text-sm total-val-disp">₹2,50,250.00</span>
+      </div>
+      <div class="flex justify-between">
+        <span>Response Code:</span>
+        <span class="text-emerald-800 font-bold">00 (SUCCESS - Direct Credit)</span>
+      </div>
+    </div>
+
+    <button onclick="closeModal('modal-pfms')" class="w-full py-2.5 bg-primary text-white rounded-xl font-bold text-sm hover:bg-primary-container shadow">
+      Verified • Close
+    </button>
+  </div>
+</div>
+
+<!-- Footer with Civic Compliance References -->
+<footer class="w-full bg-surface-container-lowest border-t border-slate-200 py-8 mt-12">
+  <div class="w-full px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-on-surface-variant text-xs max-w-[1600px] mx-auto">
+    <div class="flex items-center gap-3">
+      <span class="font-bold text-on-surface">© 2026 KisanFlow AI</span>
+      <span>• Ministry of Agriculture &amp; Farmers Welfare</span>
+      <span>• Smart India Hackathon Flagship Project</span>
+    </div>
+    <div class="flex items-center gap-6">
+      <a class="hover:text-primary transition-colors font-medium" href="../farmer_interface_mobile_suite_booking_flow/code.html">Mobile App Mode</a>
+      <a class="hover:text-primary transition-colors font-medium" href="../mandi_procurement_operations_ai_queue_manager/code.html">Mandi Operations Desk</a>
+      <a class="hover:text-primary transition-colors font-medium" href="../admin_government_central_command_dashboard/code.html">State Command Dashboard</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Interactive Engine Logic Script -->
+<script>
+  // Central Reactive Application State
+  const state = {
+    farmerName: "Ramesh Kumar",
+    agriStackId: "PB-2026-8819",
+    vehicleNo: "PB-19-T-4912",
+    quota: 110.0,
+    cropKey: "wheat",
+    crops: {
+      wheat: { name: "Wheat (Sharbati Grade-A)", msp: 2275, bonus: 150 },
+      paddy: { name: "Paddy (Basmati Grade-1)", msp: 2320, bonus: 100 },
+      mustard: { name: "Mustard (Pusa Bold)", msp: 5650, bonus: 200 }
+    },
+    selectedMandi: "barnala",
+    mandiData: {
+      barnala: {
+        name: "Barnala Central Mandi (ABC Hub-1)",
+        shortName: "Barnala Central Yard (Bay 02)",
+        bay: "Bay 02",
+        waitMins: 18,
+        queueAhead: 6,
+        distKm: 2.4,
+        confidence: "98.6%"
+      },
+      dhuri: {
+        name: "Dhuri Mandi Warehouse Hub",
+        shortName: "Dhuri Mandi Warehouse (Bay 01)",
+        bay: "Bay 01",
+        waitMins: 45,
+        queueAhead: 16,
+        distKm: 8.5,
+        confidence: "89.2%"
+      }
+    },
+    tokenNumber: "A-027",
+    slotTime: "10:30 AM – 11:30 AM",
+    secondsLeft: 1080, // 18 mins
+    gateCleared: false,
+    queueStep: 3,
+    voiceActive: true,
+    lang: "en",
+    cctvIndex: 0
+  };
+
+  // Web Audio Synthesizer for UI feedback
+  function playTone(freq = 440, type = 'sine', duration = 0.15) {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + duration);
+    } catch(e) { /* ignore */ }
+  }
+
+  // Web Speech API Voice synthesis
+  function speakMessage(text, lang = state.lang) {
+    if (!state.voiceActive || !window.speechSynthesis) return;
+    try {
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.rate = 0.95;
+      utter.pitch = 1.0;
+      if (lang === 'pa') {
+        utter.lang = 'pa-IN';
+      } else if (lang === 'hi') {
+        utter.lang = 'hi-IN';
+      } else {
+        utter.lang = 'en-IN';
+      }
+      window.speechSynthesis.speak(utter);
+    } catch(e) { /* ignore */ }
+  }
+
+  // Toast Notification System
+  function showToast(message, icon = "check_circle", type = "success") {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    const colors = type === "error" ? "bg-red-800 text-white" : "bg-emerald-900 text-white";
+    toast.className = `${colors} pointer-events-auto px-4 py-3 rounded-xl shadow-xl flex items-center gap-2.5 text-sm font-semibold transition-all transform translate-y-4 opacity-0 border border-white/20`;
+    toast.innerHTML = `<span class="material-symbols-outlined text-lg">${icon}</span><span>${message}</span>`;
+    container.appendChild(toast);
+    requestAnimationFrame(() => {
+      toast.classList.remove('translate-y-4', 'opacity-0');
+    });
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'translate-y-4');
+      setTimeout(() => toast.remove(), 400);
+    }, 3200);
+  }
+
+  // Calculation & UI Refresh
+  function renderState() {
+    const crop = state.crops[state.cropKey];
+    const totalPayout = state.quota * (crop.msp + crop.bonus);
+    const formattedPayout = "₹" + totalPayout.toLocaleString('en-IN');
+
+    // Update Quota Displays
+    const qDisp = document.getElementById('quota-disp');
+    if (qDisp) qDisp.textContent = state.quota.toFixed(1) + " Qtl";
+    
+    const mspDisp = document.getElementById('msp-rate-disp');
+    if (mspDisp) mspDisp.innerHTML = `₹${crop.msp.toLocaleString('en-IN')} <span class="text-base font-medium text-on-surface-variant">/ Qtl</span>`;
+
+    // Total value on all places
+    document.querySelectorAll('.total-val-disp').forEach(el => {
+      el.textContent = formattedPayout;
+    });
+
+    // Milestone produce text
+    const m4 = document.getElementById('m4-accepted-produce');
+    if (m4) m4.textContent = `${state.quota.toFixed(1)} Quintals ${crop.name}`;
+
+    const jCrop = document.getElementById('jform-crop-name');
+    if (jCrop) jCrop.textContent = crop.name;
+    const jQuota = document.getElementById('jform-quota');
+    if (jQuota) jQuota.textContent = state.quota.toFixed(1) + " Qtl";
+    const jMsp = document.getElementById('jform-msp');
+    if (jMsp) jMsp.textContent = "₹" + crop.msp.toLocaleString('en-IN') + ".00";
+
+    const dbtSub = document.getElementById('dbt-calc-sub');
+    if (dbtSub) dbtSub.textContent = `Final Realized Amount (${state.quota.toFixed(1)} Quintals @ ₹${crop.msp}/Qtl + ₹${crop.bonus} Bonus)`;
+
+    // Mandi details
+    const curMandi = state.mandiData[state.selectedMandi];
+    const recHubTitle = document.getElementById('rec-hub-title');
+    if (recHubTitle) recHubTitle.textContent = curMandi.name;
+    const recWait = document.getElementById('rec-wait-time');
+    if (recWait) recWait.textContent = curMandi.waitMins + " Mins";
+    const recQ = document.getElementById('rec-queue-ahead');
+    if (recQ) recQ.textContent = curMandi.queueAhead + " Tractors";
+    const recDist = document.getElementById('rec-dist');
+    if (recDist) recDist.textContent = curMandi.distKm + " KM";
+
+    const passYard = document.getElementById('pass-yard-name');
+    if (passYard) passYard.textContent = curMandi.shortName;
+    const passSlot = document.getElementById('pass-slot-text');
+    if (passSlot) passSlot.textContent = `Slot: ${state.slotTime} • Khewat #442/10`;
+
+    document.querySelectorAll('.token-num-disp').forEach(el => el.textContent = state.tokenNumber);
+  }
+
+  // Adjust Quota quantity
+  function adjustQuota(delta) {
+    state.quota = Math.max(10, Math.min(500, state.quota + delta));
+    playTone(600, 'sine', 0.1);
+    renderState();
+    showToast(`Harvest quota updated to ${state.quota.toFixed(1)} Quintals`);
+  }
+
+  // Change Crop
+  function changeCrop(key) {
+    if (state.crops[key]) {
+      state.cropKey = key;
+      playTone(520, 'sine', 0.12);
+      renderState();
+      showToast(`Selected crop: ${state.crops[key].name}`);
+    }
+  }
+
+  // Select Mandi Hub
+  function selectMandi(key) {
+    state.selectedMandi = key;
+    playTone(700, 'triangle', 0.15);
+    renderState();
+
+    const rowBarnala = document.getElementById('row-barnala');
+    const rowDhuri = document.getElementById('row-dhuri');
+    const btnBarnala = document.getElementById('btn-barnala');
+    const btnDhuri = document.getElementById('btn-dhuri');
+
+    if (key === 'barnala') {
+      rowBarnala.className = "bg-emerald-50/70 font-semibold";
+      rowDhuri.className = "hover:bg-slate-50";
+      btnBarnala.className = "px-4 py-2 bg-primary hover:bg-primary-container text-on-primary text-xs font-bold rounded-lg shadow-sm";
+      btnBarnala.textContent = "Selected";
+      btnDhuri.className = "px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold rounded-lg";
+      btnDhuri.textContent = "Switch";
+      showToast("Balanced to Barnala Central Hub (Zero congestion corridor)");
+    } else {
+      rowDhuri.className = "bg-amber-50/70 font-semibold";
+      rowBarnala.className = "hover:bg-slate-50";
+      btnDhuri.className = "px-4 py-2 bg-primary hover:bg-primary-container text-on-primary text-xs font-bold rounded-lg shadow-sm";
+      btnDhuri.textContent = "Selected";
+      btnBarnala.className = "px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold rounded-lg";
+      btnBarnala.textContent = "Switch";
+      showToast("Switched to Dhuri Mandi Warehouse Hub (Wait ~45 mins)");
+    }
+  }
+
+  function alertBypassedMandi() {
+    playTone(300, 'sawtooth', 0.2);
+    alert("⚠️ KisanFlow AI Dynamic Congestion Warning:\n\nJalandhar Main APMC Yard is experiencing a 48-tractor gridlock with 3.5 hours average wait time. Rerouting is actively enforced by district command to prevent transit spoil.");
+  }
+
+  // Time Slot Selection
+  function selectSlotWindow(slot) {
+    state.slotTime = slot;
+    playTone(550, 'sine', 0.1);
+    document.querySelectorAll('.slot-pill').forEach(btn => {
+      if (btn.textContent.includes(slot.split(' ')[0])) {
+        btn.className = "slot-pill px-3 py-1 rounded-lg text-xs font-bold bg-secondary-container text-on-secondary-container shadow-sm";
+      } else {
+        btn.className = "slot-pill px-3 py-1 rounded-lg text-xs font-bold bg-white/10 text-white hover:bg-white/20";
+      }
+    });
+    renderState();
+    showToast(`Assigned slot window updated: ${slot}`);
+  }
+
+  // 1-Click Booking
+  function bookRecommendedSlot() {
+    playTone(800, 'triangle', 0.25);
+    state.tokenNumber = "A-027";
+    showToast("AI Slot Confirmed! Generating Digital Token Pass...");
+    speakMessage("ਸਲਾਟ ਬੁੱਕ ਹੋ ਗਿਆ ਹੈ। ਟੋਕਨ ਨੰਬਰ ਏ-27 ਜਾਰੀ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।", "pa");
+    setTimeout(() => {
+      switchView('view-token');
+    }, 450);
+  }
+
+  function confirmAiSlot() {
+    playTone(880, 'triangle', 0.3);
+    showToast("Confirmed Barnala Central Bay 02 Slot! Pass Generated.");
+    speakMessage("Barnala Mandi slot confirmed. Present your digital QR code at Gate 02.", "en");
+    switchView('view-token');
+  }
+
+  // Journey View Switcher
+  function switchView(viewId) {
+    const views = document.querySelectorAll('.journey-view');
+    views.forEach(v => {
+      v.classList.add('hidden');
+      v.classList.remove('flex');
+    });
+
+    const target = document.getElementById(viewId);
+    if (target) {
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+    }
+
+    const tabs = document.querySelectorAll('.journey-tab');
+    tabs.forEach(t => {
+      t.className = "journey-tab px-3 py-3 rounded-lg text-left transition-all border flex flex-col gap-1 bg-surface-container-lowest text-on-surface border-slate-200 hover:border-primary/50";
+    });
+
+    const tabMap = {
+      'view-home': 'tab-home',
+      'view-recommend': 'tab-recommend',
+      'view-token': 'tab-token',
+      'view-queue': 'tab-queue',
+      'view-tracker': 'tab-tracker'
+    };
+
+    const activeTabId = tabMap[viewId];
+    if (activeTabId) {
+      const activeTab = document.getElementById(activeTabId);
+      if (activeTab) {
+        activeTab.className = "journey-tab px-3 py-3 rounded-lg text-left transition-all border flex flex-col gap-1 bg-primary text-on-primary border-primary shadow-md ring-2 ring-primary/20";
+      }
+    }
+
+    playTone(500, 'sine', 0.08);
+
+    if (window.innerWidth < 1024) {
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+  }
+
+  // Voice Assist Toggle
+  function toggleVoiceAssist() {
+    state.voiceActive = !state.voiceActive;
+    const btn = document.getElementById('voice-toggle-btn');
+    const label = document.getElementById('voice-label');
+    const icon = document.getElementById('voice-icon');
+    if (state.voiceActive) {
+      btn.className = "flex items-center gap-2 bg-white/20 hover:bg-white/30 text-on-primary px-3 py-1.5 rounded-lg text-sm font-semibold transition-all shadow-sm";
+      label.textContent = "Voice Guide: ON";
+      icon.textContent = "record_voice_over";
+      speakMessage("KisanFlow Voice Assistance is now active.", "en");
+      showToast("Voice Guidance Enabled");
+    } else {
+      btn.className = "flex items-center gap-2 bg-red-500/30 text-white px-3 py-1.5 rounded-lg text-sm font-semibold transition-all shadow-sm";
+      label.textContent = "Voice Guide: OFF";
+      icon.textContent = "voice_over_off";
+      showToast("Voice Guidance Muted", "volume_off");
+    }
+  }
+
+  function replayHomeAudio() {
+    playTone(600, 'sine', 0.1);
+    speakMessage("ਤੁਹਾਡੀ 110 ਕੁਇੰਟਲ ਕਣਕ ਮੰਡੀ ਵਿੱਚ ਜਮ੍ਹਾਂ ਕਰਵਾਉਣ ਲਈ ਤਿਆਰ ਹੈ। ਹੇਠਾਂ ਦਿੱਤਾ ਹਰਾ ਬਟਨ ਦਬਾਓ।", "pa");
+    showToast("Playing audio prompt...", "volume_up");
+  }
+
+  function playTokenAudio() {
+    playTone(750, 'triangle', 0.2);
+    speakMessage("ਟੋਕਨ ਨੰਬਰ A-027, ਰਮੇਸ਼ ਕੁਮਾਰ, ਕੰਡੇ ਵੱਲ ਵਧੋ।", "pa");
+    showToast("Announcing Token A-027 turn over Mandi PA speaker");
+  }
+
+  // Gate Scan Simulator
+  function simulateGateScan() {
+    playTone(1000, 'triangle', 0.4);
+    state.gateCleared = true;
+    
+    const barrierText = document.getElementById('barrier-text');
+    const barrierBadge = document.getElementById('barrier-badge');
+    const statusLabel = document.getElementById('gate-clearance-status');
+    
+    barrierBadge.className = "flex items-center gap-2 bg-emerald-600 text-white px-3.5 py-2 rounded-xl text-sm font-bold animate-pulse";
+    barrierText.textContent = "Gate 02 Boom Barrier OPEN!";
+    statusLabel.textContent = "Optical ANPR Cleared • Boom Barrier Raised";
+    statusLabel.className = "text-xs text-white bg-emerald-700 px-2 py-0.5 rounded font-bold";
+
+    showToast("Gate 02 Optical Barrier OPEN! Tractor PB-19-T-4912 admitted.", "door_open");
+    speakMessage("Gate 02 Boom barrier opened. Welcome to Barnala Mandi.", "en");
+
+    setTimeout(() => {
+      barrierBadge.className = "flex items-center gap-2 bg-primary/10 text-primary px-3.5 py-2 rounded-xl text-sm font-bold";
+      barrierText.textContent = "Gate 02 Admitted • In Yard";
+    }, 4000);
+  }
+
+  // Queue Advance Simulation
+  function advanceQueueStep() {
+    playTone(650, 'sine', 0.15);
+    state.queueStep = (state.queueStep % 4) + 1;
+    
+    const node2Status = document.getElementById('node-2-status');
+    const node3Badge = document.getElementById('node-3-badge');
+    const node3Sub = document.getElementById('node-3-sub');
+    const scaleReading = document.getElementById('scale-live-reading');
+
+    if (state.queueStep === 1) {
+      node2Status.textContent = "Cleared";
+      node3Badge.textContent = "ON SCALE";
+      node3Sub.textContent = "Weighing Now";
+      scaleReading.textContent = "14,800 KG (Gross)";
+      showToast("Tractor PB-19-T-4912 driven onto Weighbridge #02!");
+      speakMessage("Your tractor is now on weighbridge 02.", "en");
+    } else if (state.queueStep === 2) {
+      node3Badge.textContent = "TARE WEIGHED";
+      scaleReading.textContent = "3,800 KG (Tare)";
+      showToast("Vehicle tare weight calibrated: 3,800 KG");
+    } else if (state.queueStep === 3) {
+      node3Badge.textContent = "NET ACCEPTED";
+      scaleReading.textContent = "11,000 KG (Net Produce)";
+      showToast("Net Wheat: 11,000 KG (110 Quintals) confirmed!");
+    } else {
+      showToast("Cycle complete. Moving to PFMS DBT payout.");
+      switchView('view-tracker');
+    }
+  }
+
+  // Weighbridge scale re-tare
+  function simulateScaleCycle() {
+    playTone(500, 'square', 0.1);
+    const reading = document.getElementById('scale-live-reading');
+    reading.textContent = "0 KG (Zero Calibrated)";
+    setTimeout(() => {
+      reading.textContent = "11,000 KG (Net Certified)";
+      showToast("Weighbridge #02 re-zeroed and verified ±0.02%");
+    }, 900);
+  }
+
+  // Moisture Assay Simulation
+  function testMoistureAssay() {
+    playTone(850, 'sine', 0.2);
+    const disp = document.getElementById('moisture-val-disp');
+    disp.textContent = "Testing AI Spectrometry...";
+    disp.className = "text-xl font-bold text-amber-600 mt-2 animate-pulse";
+    setTimeout(() => {
+      disp.textContent = "11.2% Moisture (Passed)";
+      disp.className = "text-2xl font-black text-emerald-700 mt-2";
+      showToast("AI Spectrometry: 11.2% Moisture Content Approved!");
+      speakMessage("Crop moisture test passed at 11.2 percent. Zero dockage penalty.", "en");
+    }, 1100);
+  }
+
+  // CCTV Switcher
+  const cctvFeeds = [
+    { title: "CCTV Gate 02 Live Feed", desc: "Pneumatic intake running at 85% continuous capacity. No queue buildup outside outer perimeter.", sub: "Automated Unloader Bay 02", url: "https://lh3.googleusercontent.com/aida-public/AB6AXuCdRhVF8JjeRkGtgyU4azmon_mEsABDRW6PFMx8N8X2Kjz9Ls-GXlWy1kHNHcMhDGTKgpmoja_XK83C6pv8dePnin1ipU9-25leX8leC4WHOK-9KODP4dnsxK-JAf_R60RM2vM8KbiPg_yTqKfdLKj1S1aLPK1toBOYCjLEq6QAWiVuPNBWdxBQDhnxzS95MVmzaZEdA-yZrZrthwtCaYMXmxvFCn4u_89LoBigaV5KS0kUTIpPfw" },
+    { title: "CCTV Weighbridge #02 Scale", desc: "Platform calibrated under electronic load cell telemetry. Tare verification in progress.", sub: "Weighbridge Platform 02", url: "https://lh3.googleusercontent.com/aida-public/AB6AXuCdRhVF8JjeRkGtgyU4azmon_mEsABDRW6PFMx8N8X2Kjz9Ls-GXlWy1kHNHcMhDGTKgpmoja_XK83C6pv8dePnin1ipU9-25leX8leC4WHOK-9KODP4dnsxK-JAf_R60RM2vM8KbiPg_yTqKfdLKj1S1aLPK1toBOYCjLEq6QAWiVuPNBWdxBQDhnxzS95MVmzaZEdA-yZrZrthwtCaYMXmxvFCn4u_89LoBigaV5KS0kUTIpPfw" },
+    { title: "CCTV Silo Pit Bay 02", desc: "Automated hydraulic wheat intake grain elevator operating at standard velocity.", sub: "Pneumatic Silo Pit Bay 02", url: "https://lh3.googleusercontent.com/aida-public/AB6AXuCdRhVF8JjeRkGtgyU4azmon_mEsABDRW6PFMx8N8X2Kjz9Ls-GXlWy1kHNHcMhDGTKgpmoja_XK83C6pv8dePnin1ipU9-25leX8leC4WHOK-9KODP4dnsxK-JAf_R60RM2vM8KbiPg_yTqKfdLKj1S1aLPK1toBOYCjLEq6QAWiVuPNBWdxBQDhnxzS95MVmzaZEdA-yZrZrthwtCaYMXmxvFCn4u_89LoBigaV5KS0kUTIpPfw" },
+    { title: "CCTV Highway Green Corridor", desc: "NH-703 Mandi Approach Bypass. Zero gridlock, unobstructed traffic flow.", sub: "Highway Approach Corridor", url: "https://lh3.googleusercontent.com/aida-public/AB6AXuCdRhVF8JjeRkGtgyU4azmon_mEsABDRW6PFMx8N8X2Kjz9Ls-GXlWy1kHNHcMhDGTKgpmoja_XK83C6pv8dePnin1ipU9-25leX8leC4WHOK-9KODP4dnsxK-JAf_R60RM2vM8KbiPg_yTqKfdLKj1S1aLPK1toBOYCjLEq6QAWiVuPNBWdxBQDhnxzS95MVmzaZEdA-yZrZrthwtCaYMXmxvFCn4u_89LoBigaV5KS0kUTIpPfw" }
+  ];
+
+  function switchCctv(index) {
+    state.cctvIndex = index;
+    const feed = cctvFeeds[index];
+    playTone(700, 'sine', 0.08);
+    document.getElementById('cctv-cam-title').textContent = feed.title;
+    document.getElementById('cctv-status-title').textContent = feed.sub;
+    document.getElementById('cctv-status-desc').textContent = feed.desc;
+
+    document.querySelectorAll('.cctv-btn').forEach((btn, i) => {
+      if (i === index) {
+        btn.className = "cctv-btn px-2 py-1 rounded text-xs font-bold bg-primary text-white";
+      } else {
+        btn.className = "cctv-btn px-2 py-1 rounded text-xs font-medium text-on-surface hover:bg-surface-container";
+      }
+    });
+  }
+
+  // Modal Open / Close
+  function openModal(id) {
+    playTone(550, 'sine', 0.1);
+    const m = document.getElementById(id);
+    if (m) {
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+  }
+
+  function closeModal(id) {
+    const m = document.getElementById(id);
+    if (m) {
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+  }
+
+  function openFarmerProfileModal() { openModal('modal-farmer-profile'); }
+  function openGpsRouteModal() { openModal('modal-gps-route'); }
+  function openJFormModal() { openModal('modal-jform'); }
+  function openUssdModal() { openModal('modal-ussd'); }
+  function openPfmsModal() { openModal('modal-pfms'); }
+  function openPrintTokenModal() {
+    playTone(750, 'triangle', 0.2);
+    openModal('modal-jform');
+    showToast("Gate Pass & J-Form ready for print");
+  }
+  function openSmsModal() {
+    playTone(600, 'sine', 0.1);
+    navigator.clipboard?.writeText("KisanFlow AI: Token A-027 confirmed for Ramesh Kumar (PB-19-T-4912) at Barnala Central Mandi, Bay 02 on 10:30 AM.");
+    showToast("SMS details copied to clipboard!");
+  }
+
+  // USSD Simulator Logic
+  function pressUssdKey(char) {
+    const inp = document.getElementById('ussd-input');
+    if (inp) inp.value = char;
+    playTone(800 + (char.charCodeAt(0) * 10), 'sine', 0.06);
+  }
+
+  function submitUssd() {
+    const inp = document.getElementById('ussd-input');
+    const screen = document.getElementById('ussd-screen');
+    const val = inp ? inp.value.trim() : "";
+    playTone(700, 'square', 0.1);
+
+    if (val === "1") {
+      screen.innerHTML = `<span class="font-bold border-b border-emerald-800 pb-1">-- TOKEN A-027 STATUS --</span><p>Farmer: Ramesh Kumar<br/>Bay: Bay 02 (Barnala)<br/>Slot: 10:30 AM<br/>Status: ACTIVE / CLEAR</p><button class="mt-2 underline text-[11px]" onclick="resetUssd()">0. Back</button>`;
+    } else if (val === "2") {
+      screen.innerHTML = `<span class="font-bold border-b border-emerald-800 pb-1">-- YARD QUEUE LIVE --</span><p>Position: 6 Ahead<br/>Scale: Scale #02<br/>Est Wait: ~18 Mins<br/>Green Corridor: Active</p><button class="mt-2 underline text-[11px]" onclick="resetUssd()">0. Back</button>`;
+    } else if (val === "3") {
+      screen.innerHTML = `<span class="font-bold border-b border-emerald-800 pb-1">-- MOISTURE ASSAY --</span><p>Wheat Sharbati Grade-A<br/>Moisture: 11.2% (PASS)<br/>Tolerance: &lt;12.0%<br/>Penalty: ₹0.00</p><button class="mt-2 underline text-[11px]" onclick="resetUssd()">0. Back</button>`;
+    } else if (val === "4") {
+      screen.innerHTML = `<span class="font-bold border-b border-emerald-800 pb-1">-- PFMS DBT PAYMENT --</span><p>Net Payout: ₹2,50,250<br/>A/C: BoB **4912<br/>UTR: BARB202604081982<br/>Status: SETTLED</p><button class="mt-2 underline text-[11px]" onclick="resetUssd()">0. Back</button>`;
+    } else {
+      screen.innerHTML = `<span class="font-bold border-b border-emerald-800 pb-1">-- INVALID CHOICE --</span><p>Please enter 1, 2, 3, or 4.</p><button class="mt-2 underline text-[11px]" onclick="resetUssd()">0. Main Menu</button>`;
+    }
+  }
+
+  function resetUssd() {
+    const screen = document.getElementById('ussd-screen');
+    const inp = document.getElementById('ussd-input');
+    if (inp) inp.value = "";
+    screen.innerHTML = `
+      <span class="font-bold border-b border-emerald-800 pb-1">-- KISANFLOW AI MENU --</span>
+      <p>1. Token A-027 Status<br/>2. Current Yard Queue<br/>3. Moisture Assay Result<br/>4. DBT Settlement UTR</p>
+      <div class="mt-auto flex items-center gap-1">
+        <span>Command:</span>
+        <input type="text" id="ussd-input" maxlength="2" class="w-12 bg-black/40 border border-emerald-600 px-1 text-center text-white outline-none rounded" placeholder="1"/>
+      </div>
+    `;
+  }
+
+  // Multilingual switching
+  function changeLanguage(lang) {
+    state.lang = lang;
+    playTone(550, 'sine', 0.1);
+    if (lang === 'pa') {
+      document.getElementById('ui-hero-title').textContent = "ਕਿਸਾਨਫਲੋ AI • ਪੂਰਾ ਕਿਸਾਨ ਅਨੁਭਵ ਇੰਜਣ";
+      document.getElementById('ui-hero-desc').textContent = "ਪੂਰਵ-ਅਨੁਮਾਨਤ ਮੰਡੀ ਡਿਸਪੈਚ, ਗਤੀਸ਼ੀਲ ਕਤਾਰ ਸੰਤੁਲਨ ਅਤੇ 140M+ ਕਿਸਾਨਾਂ ਲਈ ਤੁਰੰਤ DBT ਭੁਗਤਾਨ।";
+      showToast("ਭਾਸ਼ਾ ਪੰਜਾਬੀ ਵਿੱਚ ਬਦਲੀ ਗਈ ਹੈ");
+      speakMessage("ਕਿਸਾਨਫਲੋ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।", "pa");
+    } else if (lang === 'hi') {
+      document.getElementById('ui-hero-title').textContent = "किसानफ्लो AI • संपूर्ण किसान अनुभव इंजन";
+      document.getElementById('ui-hero-desc').textContent = "पूर्वानुमानित मंडी डिस्पैच, रियल-टाइम कतार नियंत्रण और सीधे बैंक खाते में तत्काल डीबीटी भुगतान।";
+      showToast("भाषा हिन्दी में बदली गई");
+      speakMessage("किसानफ्लो में आपका स्वागत है।", "hi");
+    } else {
+      document.getElementById('ui-hero-title').textContent = "KisanFlow AI • Complete Farmer Journey Engine";
+      document.getElementById('ui-hero-desc').textContent = "Eliminating overnight tractor bottlenecks, moisture disputes, and procurement fraud through predictive load balancing & instant PFMS settlement.";
+      showToast("Language set to English");
+      speakMessage("Welcome to KisanFlow AI.", "en");
+    }
+  }
+
+  // Live Timer Ticker for 18-minute countdown and CCTV Clock
+  setInterval(() => {
+    if (state.secondsLeft > 0) {
+      state.secondsLeft--;
+    }
+    const mins = Math.floor(state.secondsLeft / 60);
+    const secs = state.secondsLeft % 60;
+    const timeStr = `${mins}m ${secs < 10 ? '0' : ''}${secs}s`;
+    
+    const countDisp = document.getElementById('token-countdown-disp');
+    if (countDisp) countDisp.textContent = `~${timeStr}`;
+
+    const qCountDisp = document.getElementById('queue-countdown-disp');
+    if (qCountDisp) qCountDisp.textContent = `~${timeStr}`;
+
+    // Update CCTV Clock
+    const now = new Date();
+    const clockEl = document.getElementById('cctv-clock');
+    if (clockEl) {
+      clockEl.textContent = "LIVE " + now.toLocaleTimeString();
+    }
+  }, 1000);
+
+  // Initial Boot & Real-time Backend Listener
+  window.addEventListener('DOMContentLoaded', () => {
+    renderState();
+
+    // Listen for socket events from backend
+    window.addEventListener('kisanflow_token_updated', (e) => {
+      if (e.detail && e.detail.token) {
+        const t = e.detail.token;
+        if (t.tokenNumber === state.tokenNumber || t.farmerName === state.farmerName) {
+          state.stage = t.stage;
+          if (t.weighbridge) {
+            showToast("Weighbridge recorded by operator! DBT payment initiated.", "verified", "success");
+          }
+          renderState();
+        }
+      }
+    });
+  });
+</script>
+<!-- KisanFlow Backend Integration & Real-time Socket SDK -->
+<script src="../../assets/js/kisanflow-backend-client.js"></script>
+</body>
+</html>

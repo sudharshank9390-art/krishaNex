@@ -1,0 +1,21 @@
+{
+  "name": "krishnex-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KrishNex • Smart Agriculture & Seamless Procurement Platform Monorepo",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "preview:frontend": "npm --prefix frontend run preview"
+  },
+  "keywords": [
+    "krishnex",
+    "agritech",
+    "procurement",
+    "fullstack",
+    "react",
+    "typescript"
+  ],
+  "author": "KrishNex Architectural Team",
+  "license": "MIT"
+}

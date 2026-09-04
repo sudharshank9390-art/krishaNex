@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=publicSans:wght@100..900&amp;family=spaceGrotesk:wght@100..900&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-surface":"#131b2e","on-secondary-fixed":"#002109","on-surface-variant":"#3f493f","surface-tint":"#006d30","primary-fixed":"#95f8a7","error":"#ba1a1a","surface-container-low":"#f2f3ff","on-tertiary-container":"#eaf4ff","on-background":"#131b2e","inverse-surface":"#283044","secondary":"#006e2f","tertiary":"#005c85","tertiary-fixed":"#c9e6ff","on-error-container":"#93000a","surface-container-high":"#e2e7ff","on-primary-fixed":"#00210a","outline-variant":"#becabc","primary-container":"#15803d","surface":"#faf8ff","on-tertiary-fixed":"#001e2f","surface-variant":"#dae2fd","surface-bright":"#faf8ff","on-tertiary":"#ffffff","on-primary":"#ffffff","on-secondary-fixed-variant":"#005321","error-container":"#ffdad6","outline":"#6f7a6e","surface-container":"#eaedff","secondary-fixed-dim":"#4ae176","primary":"#00652c","inverse-primary":"#79db8d","inverse-on-surface":"#eef0ff","secondary-fixed":"#6bff8f","on-error":"#ffffff","on-primary-container":"#d3ffd5","on-secondary":"#ffffff","tertiary-container":"#0076a9","secondary-container":"#6bff8f","surface-container-highest":"#dae2fd","background":"#faf8ff","on-tertiary-fixed-variant":"#004c6e","surface-dim":"#d2d9f4","tertiary-fixed-dim":"#89ceff","primary-fixed-dim":"#79db8d","on-primary-fixed-variant":"#005323","on-secondary-container":"#007432","surface-container-lowest":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-3xl":"4rem","gutter-desktop":"1.5rem","gutter-mobile":"1rem","margin-tablet":"2rem","space-lg":"1.5rem","space-md":"1rem","space-xs":"0.5rem","space-2xs":"0.25rem","gutter-tablet":"1.5rem","margin-desktop":"3rem","margin-mobile":"1rem","space-sm":"0.75rem","space-2xl":"3rem","space-xl":"2rem"},"fontFamily":{"body-md":["publicSans"],"headline-sm":["publicSans"],"label-lg":["spaceGrotesk"],"headline-lg":["publicSans"],"headline-md":["publicSans"],"headline-xl-mobile":["publicSans"],"label-sm":["spaceGrotesk"],"label-md":["spaceGrotesk"],"headline-xl":["publicSans"],"body-lg":["publicSans"],"headline-lg-mobile":["publicSans"],"body-sm":["publicSans"]},"fontSize":{"body-md":["1rem",{"lineHeight":"1.5rem","fontWeight":"400"}],"headline-sm":["1.25rem",{"lineHeight":"1.75rem","fontWeight":"600"}],"label-lg":["1rem",{"lineHeight":"1.5rem","fontWeight":"600"}],"headline-lg":["2.25rem",{"lineHeight":"2.75rem","fontWeight":"700"}],"headline-md":["1.5rem",{"lineHeight":"2rem","fontWeight":"600"}],"headline-xl-mobile":["2rem",{"lineHeight":"2.5rem","fontWeight":"700"}],"label-sm":["0.75rem",{"lineHeight":"1rem","fontWeight":"500"}],"label-md":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"500"}],"headline-xl":["3rem",{"lineHeight":"3.5rem","fontWeight":"700"}],"body-lg":["1.125rem",{"lineHeight":"1.75rem","fontWeight":"400"}],"headline-lg-mobile":["1.625rem",{"lineHeight":"2.125rem","fontWeight":"700"}],"body-sm":["0.875rem",{"lineHeight":"1.25rem","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-primary-container text-on-primary shadow-[0_1px_8px_rgba(0,0,0,0.06)]"><div class="w-full px-gutter-desktop h-20 flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md min-w-max"><div class="bg-white/95 rounded-lg px-2 py-1 flex items-center shadow-sm"><img alt="KisanFlow AI Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UHBQemQgXsIP6WjXBc_VkZ_RDfCqH09FWC_npU7EFGMNuOtMBNOfx15iW6Wwq54w6r103yZqbtT9cDsJJ4tZYq3j84H1bY8Pp2_6DrF_r5rjM7aJ5XeB6h3NP--sTt5LE4vlRIpuojpl4riXp2-JnotasYcKfHLlFZdWo8z_VHZkmN1_-h3Ieg2r9slTgDOlwLUL1zNjgSQF-5LBBz-YYpriKh9jvVq36bXpDqOMj7Z3ByrO8qpL-m"/></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-sm tracking-tight text-on-primary">Central Command</span><span class="px-space-xs py-space-2xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider font-bold">SIH 2026</span></div><span class="font-label-sm text-label-sm text-on-primary-container hidden sm:inline">National Agricultural Procurement &amp; Statewide Load Balancing Engine</span></div></div><div class="hidden xl:flex items-center gap-space-xs bg-primary/40 px-space-md py-space-xs rounded-lg border border-white/10"><span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed animate-pulse"></span><span class="font-label-sm text-label-sm text-on-primary font-medium">Statewide Node: Punjab &amp; Haryana Agri-Cluster Online • Dynamic Routing Active</span></div><nav class="flex items-center bg-primary/60 p-space-2xs rounded-xl" data-active-classes="bg-surface text-primary font-bold shadow-sm"><a class="px-space-md py-space-xs rounded-lg font-label-md text-label-md text-on-primary hover:text-on-primary transition-colors flex items-center gap-space-xs" data-path="farmer-portal" href="#">Farmer Portal</a><a class="px-space-md py-space-xs rounded-lg font-label-md text-label-md text-on-primary hover:text-on-primary transition-colors flex items-center gap-space-xs" data-path="procurement-operations" href="#">Mandi Operations</a><a aria-current="page" class="px-space-md py-space-xs rounded-lg transition-colors flex items-center gap-space-xs bg-surface text-primary font-bold shadow-sm" data-path="admin-command-center" href="#">Central Command</a></nav><div class="flex items-center gap-space-md min-w-max"><div class="hidden lg:flex items-center gap-space-xs bg-primary/40 px-space-sm py-space-xs rounded-lg font-label-sm text-label-sm text-on-primary"><span class="material-symbols-outlined text-sm">call</span><span>1800-KISAN-AI</span></div><div class="hidden md:flex items-center gap-space-2xs bg-primary/50 px-space-xs py-space-2xs rounded-lg"><span class="material-symbols-outlined text-sm text-on-primary-container">translate</span><select class="bg-transparent font-label-sm text-label-sm text-on-primary outline-none cursor-pointer pr-space-xs"><option class="text-on-surface bg-surface" value="en">English</option><option class="text-on-surface bg-surface" value="hi">Hindi हिन्दी</option><option class="text-on-surface bg-surface" value="pa">Punjabi ਪੰਜਾਬੀ</option><option class="text-on-surface bg-surface" value="mr">Marathi मराठी</option></select></div><div class="flex items-center gap-space-xs pl-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md text-on-primary leading-tight font-semibold">Rajesh Verma, IAS</span><span class="font-label-sm text-label-sm text-on-primary-container">State Nodal Procurement Controller</span></div><img alt="Rajesh Verma, IAS" class="w-10 h-10 rounded-full object-cover border-2 border-white/40 shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1W_8ENeV4bEFpQPRnieTB1eo6AKgY5XqA8Ydd8f7MI9_kxy23VgCr2AjKZUpqCQVbI-rYAr5NS8PBUnxZSH-u4yCJ9Qkie4JsCFKIrkEG5MKA0I6AvwKfRzmGe0hFwOfiOgWJs5hRuMdtll-yEEKdnRXND3rj0Agygb8ZxK4ezHO_iK4JwzlyHjS7-5lZjeu7OgLC0l1fOrEKiZfqDOjHOuU0_T1TwRt49zy5z8rx7TAeFUoV-uzOE"/></div></div></div></header><aside class="fixed left-0 top-20 bottom-0 w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex flex-col justify-between py-space-lg"><div class="flex flex-col px-space-md gap-space-lg"><div class="flex items-center justify-between px-space-xs"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Procurement Control</span><span class="font-label-sm text-label-sm bg-surface-container-high text-tertiary px-space-xs py-space-2xs rounded font-bold">Rabi 2026</span></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-bold shadow-sm"><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md bg-primary-container text-on-primary font-bold shadow-sm" data-path="admin-command-center" href="#"><span class="material-symbols-outlined">dashboard</span>Command Center</a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="live-queue-telemetry" href="#"><span class="material-symbols-outlined">alt_route</span>Queue Telemetry</a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="weighbridge-dispatch" href="#"><span class="material-symbols-outlined">scale</span>Weighbridge Operations</a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="slot-allocation-engine" href="#"><span class="material-symbols-outlined">smart_toy</span>AI Slot Optimizer</a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="procurement-analytics" href="#"><span class="material-symbols-outlined">query_stats</span>Procurement Analytics</a><a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="mandi-cluster-status" href="#"><span class="material-symbols-outlined">hub</span>Cluster Telemetry</a></nav></div><div class="px-space-md flex flex-col gap-space-sm"><div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-2xs border border-surface-container"><div class="flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-sm text-primary">cloud_sync</span><span class="font-label-sm text-label-sm text-on-surface font-semibold">Gov SMS-Pravah</span></div><span class="w-2 h-2 rounded-full bg-secondary"></span></div><span class="font-body-sm text-body-sm text-on-surface-variant text-xs">99.8% multi-lingual SMS delivery SLA (18,400 sent today)</span></div><div class="flex items-center justify-between text-outline px-space-xs font-label-sm text-label-sm"><span>KisanFlow v2.4</span><span class="font-bold text-primary">SIH-2026 Winner Node</span></div></div></aside><div class="pl-72"><main class="relative pt-20 w-full min-h-screen bg-background"><div class="flex flex-col w-full">
+<!-- Command Header Strip -->
+<section class="w-full bg-surface-container-lowest shadow-sm px-gutter-desktop py-space-md border-b border-surface-container">
+<div class="max-w-[1440px] mx-auto flex flex-col xl:flex-row xl:items-center xl:justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs mb-space-2xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-surface-container-high text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm">security</span>
+            NATIONAL CIVIC PROCUREMENT TELEMETRY NODE
+          </span>
+<span class="text-outline font-label-sm text-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Department of Food, Civil Supplies &amp; Consumer Affairs</span>
+</div>
+<div class="flex items-baseline gap-space-sm flex-wrap">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight font-bold">
+            State Agricultural Procurement Central Command
+          </h1>
+<span class="px-space-xs py-space-2xs rounded bg-primary/10 text-primary font-label-sm text-label-sm font-bold">
+            Punjab &amp; Haryana Inter-State Cluster (Rabi Season 2026)
+          </span>
+</div>
+</div>
+<!-- Quick Status Badges -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-xl bg-surface-container-low border border-surface-container">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold leading-tight">42 / 42 Mandi Nodes Active</span>
+<span class="font-body-sm text-body-sm text-outline text-[11px] leading-tight">100% Core Network Operational</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-xl bg-surface-container-low border border-surface-container">
+<span class="material-symbols-outlined text-tertiary text-lg">sync</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold leading-tight">15s AI Telemetry Loop</span>
+<span class="font-body-sm text-body-sm text-outline text-[11px] leading-tight" id="telemetry-timer">Auto-sync: 12s left</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-space-2xs px-space-md py-space-xs rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-all shadow-sm">
+<span class="material-symbols-outlined text-sm">download</span>
+            Export Daily Gazette
+          </button>
+<button class="p-space-xs rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-all border border-outline-variant/30" title="Broadcast State Alert">
+<span class="material-symbols-outlined text-base">emergency_share</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Macro KPI Bento Grid -->
+<section class="w-full px-gutter-desktop py-space-lg">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-space-md">
+<!-- Card 1: Registered Farmers -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all border border-surface-container">
+<div class="flex items-center justify-between text-outline mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Registered Farmers</span>
+<span class="material-symbols-outlined text-primary text-xl">group</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight font-bold">48,920</span>
+<div class="flex items-center gap-space-2xs mt-space-2xs">
+<span class="text-secondary font-label-sm text-label-sm font-semibold flex items-center">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>+8.4%
+            </span>
+<span class="font-body-sm text-body-sm text-outline text-[11px]">vs Rabi 2025</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Active Centres -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all border border-surface-container">
+<div class="flex items-center justify-between text-outline mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Mandi Network</span>
+<span class="material-symbols-outlined text-secondary text-xl">storefront</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight font-bold">42 / 42</span>
+<div class="flex items-center gap-space-2xs mt-space-2xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body-sm text-body-sm text-secondary font-semibold text-[11px]">Zero Unscheduled Outages</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Live Waiting Queue / Average Dwell Time -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all border border-surface-container">
+<div class="flex items-center justify-between text-outline mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Avg Dwell Time</span>
+<span class="material-symbols-outlined text-tertiary text-xl">commute</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-md text-headline-md text-primary tracking-tight font-bold">38 min</span>
+<span class="font-label-sm text-label-sm text-outline">avg wait</span>
+</div>
+<div class="flex items-center gap-space-2xs mt-space-2xs">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Slashed from 4.8h</span>
+<span class="font-body-sm text-body-sm text-outline text-[11px]">(384 in transit)</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Total Wheat Procured -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all border border-surface-container">
+<div class="flex items-center justify-between text-outline mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Wheat Procured</span>
+<span class="material-symbols-outlined text-primary text-xl">grain</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface tracking-tight font-bold">4.82 L MT</span>
+<div class="flex items-center gap-space-2xs mt-space-2xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold text-[11px]">84% target reached</span>
+</div>
+</div>
+</div>
+<!-- Card 5: DBT Settlement -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all border border-surface-container">
+<div class="flex items-center justify-between text-outline mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">PFMS / Aadhaar DBT</span>
+<span class="material-symbols-outlined text-secondary text-xl">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-secondary tracking-tight font-bold">₹1,096.5 Cr</span>
+<div class="flex items-center gap-space-2xs mt-space-2xs">
+<span class="font-label-sm text-label-sm text-secondary font-bold">99.4% Disbursed</span>
+<span class="font-body-sm text-body-sm text-outline text-[11px]">&lt; 48hr window</span>
+</div>
+</div>
+</div>
+<!-- Card 6: AI Load Balancing Efficiency -->
+<div class="bg-gradient-to-br from-surface-container-lowest to-surface-container-low p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all border border-surface-container">
+<div class="flex items-center justify-between text-outline mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">Peak Congestion Shaved</span>
+<span class="material-symbols-outlined text-tertiary text-xl">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-tertiary tracking-tight font-bold">+41%</span>
+<div class="flex items-center gap-space-2xs mt-space-2xs">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold text-[11px]">Statewide Auto Balancing</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Mandi Network Map & Congestion Matrix + Inspector Panel -->
+<section class="w-full px-gutter-desktop pb-space-lg">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 xl:grid-cols-12 gap-space-md">
+<!-- Geographic Map / Interactive Yard Visualizer (8 cols) -->
+<div class="xl:col-span-8 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col border border-surface-container">
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary">map</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Live Mandi Congestion Matrix &amp; Inter-State Node Map</h2>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Real-time yard telemetry, live bottleneck detection, and autonomous tractor convoy reroutes</span>
+</div>
+<!-- Legend Filters -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-2xs rounded-lg border border-surface-container">
+<div class="flex items-center gap-space-2xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Green (&lt;20m)</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-space-2xs">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Amber (20-45m)</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-space-2xs">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Red (&gt;45m Alert)</span>
+</div>
+</div>
+</div>
+<!-- Simulated Interactive Map Canvas -->
+<div class="relative w-full h-[460px] rounded-xl bg-surface-container-low overflow-hidden flex items-center justify-center border border-surface-container">
+<!-- Background Schematic Grid Lines -->
+<svg class="absolute inset-0 w-full h-full stroke-surface-container-highest/60" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="48" id="grid-pattern" patternunits="userSpaceOnUse" width="48">
+<path d="M 48 0 L 0 0 0 48" fill="none" stroke-width="1"></path>
+</pattern>
+</defs>
+<rect fill="url(#grid-pattern)" height="100%" width="100%"></rect>
+</svg>
+<!-- Inter-mandi corridor lines -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<line class="stroke-outline/30" stroke-dasharray="4 4" stroke-width="1.5" x1="28%" x2="52%" y1="36%" y2="22%"></line>
+<line class="stroke-outline/30" stroke-dasharray="4 4" stroke-width="1.5" x1="52%" x2="72%" y1="22%" y2="42%"></line>
+<line class="stroke-outline/30" stroke-dasharray="4 4" stroke-width="1.5" x1="52%" x2="48%" y1="22%" y2="60%"></line>
+<line class="stroke-outline/30" stroke-dasharray="4 4" stroke-width="1.5" x1="48%" x2="26%" y1="60%" y2="72%"></line>
+<line class="stroke-outline/30" stroke-dasharray="4 4" stroke-width="1.5" x1="48%" x2="75%" y1="60%" y2="74%"></line>
+<line class="stroke-outline/30" stroke-dasharray="4 4" stroke-width="1.5" x1="28%" x2="26%" y1="36%" y2="72%"></line>
+<!-- Dynamic Diverting Path from Jalandhar (52%, 22%) to Kapurthala Sub-Yard (38%, 18%) -->
+<line class="stroke-error animate-pulse" stroke-dasharray="6 4" stroke-width="3" x1="52%" x2="38%" y1="22%" y2="18%"></line>
+</svg>
+<!-- Active Diversion Banner Overlaid on Map -->
+<div class="absolute top-4 left-4 z-10 bg-error/10 border border-error/30 backdrop-blur-md px-space-sm py-space-2xs rounded-lg flex items-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-error text-sm animate-spin">sync_problem</span>
+<span class="font-label-sm text-label-sm text-error font-bold">Active Convoy Diversion: Jalandhar → Kapurthala Sub-Yard (24 Convoys)</span>
+</div>
+<!-- Interactive Node 1: Jalandhar Grain Market (RED - Alert) -->
+<button class="absolute top-[22%] left-[52%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none cursor-pointer z-20" onclick="selectMandi('jalandhar')">
+<span class="absolute -inset-3 rounded-full bg-error/20 animate-ping"></span>
+<div class="relative flex items-center gap-space-2xs bg-surface-container-lowest px-space-sm py-space-2xs rounded-full shadow-md hover:scale-105 transition-transform border border-error">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Jalandhar Market</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-error-container text-on-error-container font-bold">48m (Red Alert)</span>
+</div>
+</button>
+<!-- Interactive Node 1b: Kapurthala Sub-Yard (Recipient of Diversion - GREEN) -->
+<button class="absolute top-[18%] left-[38%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none cursor-pointer z-20" onclick="selectMandi('kapurthala')">
+<div class="relative flex items-center gap-space-2xs bg-surface-container-lowest px-space-sm py-space-2xs rounded-full shadow-md hover:scale-105 transition-transform border border-secondary">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Kapurthala Sub-Yard</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">12m Buffer</span>
+</div>
+</button>
+<!-- Interactive Node 2: Barnala Hub (GREEN) -->
+<button class="absolute top-[72%] left-[26%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none cursor-pointer z-10" onclick="selectMandi('barnala')">
+<div class="flex items-center gap-space-2xs bg-surface-container-lowest px-space-sm py-space-2xs rounded-full shadow-md hover:scale-105 transition-transform border border-secondary/40">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Barnala Hub</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">16m</span>
+</div>
+</button>
+<!-- Interactive Node 3: Moga Central (GREEN) -->
+<button class="absolute top-[36%] left-[28%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none cursor-pointer z-10" onclick="selectMandi('moga')">
+<div class="flex items-center gap-space-2xs bg-surface-container-lowest px-space-sm py-space-2xs rounded-full shadow-md hover:scale-105 transition-transform border border-secondary/40">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Moga Central</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">14m</span>
+</div>
+</button>
+<!-- Interactive Node 4: Khanna South (GREEN) -->
+<button class="absolute top-[42%] left-[72%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none cursor-pointer z-10" onclick="selectMandi('khanna')">
+<div class="flex items-center gap-space-2xs bg-surface-container-lowest px-space-sm py-space-2xs rounded-full shadow-md hover:scale-105 transition-transform border border-secondary/40">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Khanna South</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container font-semibold">21m</span>
+</div>
+</button>
+<!-- Interactive Node 5: Ludhiana Mandi 1 (YELLOW/AMBER) -->
+<button class="absolute top-[60%] left-[48%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none cursor-pointer z-10" onclick="selectMandi('ludhiana')">
+<div class="flex items-center gap-space-2xs bg-surface-container-lowest px-space-sm py-space-2xs rounded-full shadow-md hover:scale-105 transition-transform border border-amber-500/40">
+<span class="w-3 h-3 rounded-full bg-amber-500"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Ludhiana Mandi 1</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">32m</span>
+</div>
+</button>
+<!-- Interactive Node 6: Patiala Mandi (YELLOW/AMBER) -->
+<button class="absolute top-[74%] left-[75%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none cursor-pointer z-10" onclick="selectMandi('patiala')">
+<div class="flex items-center gap-space-2xs bg-surface-container-lowest px-space-sm py-space-2xs rounded-full shadow-md hover:scale-105 transition-transform border border-amber-500/40">
+<span class="w-3 h-3 rounded-full bg-amber-500"></span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Patiala Mandi</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">29m</span>
+</div>
+</button>
+<!-- Floating Map Compass/Controls -->
+<div class="absolute bottom-3 left-3 bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-space-xs rounded-lg shadow-sm flex items-center gap-space-sm border border-surface-container">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">State Corridor: Punjab &amp; Haryana Granary Cluster</span>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded bg-surface-container flex items-center justify-center hover:bg-surface-container-high text-on-surface font-bold text-xs">+</button>
+<button class="w-6 h-6 rounded bg-surface-container flex items-center justify-center hover:bg-surface-container-high text-on-surface font-bold text-xs">-</button>
+</div>
+</div>
+</div>
+<!-- Corridors Status Strip -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm mt-space-md pt-space-xs">
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between border border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">GT Road North (NH-44)</span>
+<span class="font-body-sm text-body-sm text-outline text-[12px]">Procurement Transport Inflow</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Fluid (34 km/h)</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between border border-surface-container">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">NH-7 Bathinda-Barnala</span>
+<span class="font-body-sm text-body-sm text-outline text-[12px]">Wheat Transit Convoys</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">Fluid (41 km/h)</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between border border-error/30 bg-error/5">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-error font-semibold">Jalandhar Bypass (NH-703)</span>
+<span class="font-body-sm text-body-sm text-error/80 text-[12px]">Heavy Tractor Congestion &gt; 45m</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">Diverting 24 Trucks</span>
+</div>
+</div>
+</div>
+<!-- Centre Drill-Down Inspector Panel (4 cols) -->
+<div class="xl:col-span-4 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between border border-surface-container">
+<div>
+<div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-tertiary">analytics</span>
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-on-surface">Yard Node Inspector</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold" id="inspector-badge">
+              Red Alert (&gt;45m)
+            </span>
+</div>
+<!-- Selected Centre Info -->
+<div class="bg-surface-container-low p-space-md rounded-xl mb-space-md border border-surface-container">
+<div class="flex justify-between items-start mb-space-2xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold" id="inspector-title">Jalandhar Grain Market</h3>
+<span class="font-label-sm text-label-sm text-outline font-semibold" id="inspector-id">HUB #PB-04</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mb-space-sm" id="inspector-region">District: Jalandhar • Operating Capacity: 92%</span>
+<!-- Progress Bar: Yard Fullness -->
+<div class="flex flex-col gap-space-2xs">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-outline font-medium">Yard Space Utilisation</span>
+<span class="font-bold text-error" id="inspector-pct">92% (Saturation Alert)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-error transition-all duration-500" id="inspector-bar" style="width: 92%;"></div>
+</div>
+</div>
+</div>
+<!-- Specific Yard Metrics Grid -->
+<div class="grid grid-cols-2 gap-space-sm mb-space-md">
+<div class="bg-surface-container-low p-space-sm rounded-lg border border-surface-container">
+<span class="font-label-sm text-label-sm text-outline block font-medium">Live Queues</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-1 block font-bold" id="inspector-queue">44 Trucks</span>
+<span class="font-body-sm text-body-sm text-error text-[11px] font-semibold">+12 in last hour</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg border border-surface-container">
+<span class="font-label-sm text-label-sm text-outline block font-medium">Active Weighbridges</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-1 block font-bold" id="inspector-counters">8 / 8 Active</span>
+<span class="font-body-sm text-body-sm text-secondary text-[11px] font-semibold">Max Throughput</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg border border-surface-container">
+<span class="font-label-sm text-label-sm text-outline block font-medium">Grain Inflow Velocity</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-1 block font-bold" id="inspector-inflow">1,820 Qtl/hr</span>
+<span class="font-body-sm text-body-sm text-outline text-[11px]">Daily peak registered</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg border border-surface-container">
+<span class="font-label-sm text-label-sm text-outline block font-medium">Moisture Rejection</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-1 block font-bold" id="inspector-moisture">1.8%</span>
+<span class="font-body-sm text-body-sm text-secondary text-[11px] font-semibold">Safe (&lt;12% norm)</span>
+</div>
+</div>
+<!-- AI Auto-Balancing Real-Time Advisory -->
+<div class="bg-tertiary-container/10 p-space-sm rounded-xl mb-space-md border border-tertiary/20">
+<div class="flex items-center gap-space-xs mb-space-2xs">
+<span class="material-symbols-outlined text-tertiary text-base">auto_mode</span>
+<span class="font-label-sm text-label-sm font-bold text-tertiary">Autonomous Diversion Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface" id="inspector-action">
+              Statewide load balancing triggered: 24 arriving tractor convoys redirected to Kapurthala Sub-Yard (8.2 km). Token validity and queue seniority preserved with fast-track digital pass.
+            </p>
+</div>
+</div>
+<!-- Inspector Action Buttons -->
+<div class="flex flex-col gap-space-xs pt-space-sm">
+<button class="w-full py-space-xs px-space-md bg-primary-container text-on-primary rounded-xl font-label-md text-label-md hover:bg-primary transition-all flex items-center justify-center gap-space-xs shadow-sm font-semibold">
+<span class="material-symbols-outlined text-sm">notifications_active</span>
+            Broadcast Dispatch SMS to In-Transit Farmers
+          </button>
+<button class="w-full py-space-xs px-space-md bg-surface-container text-on-surface rounded-xl font-label-md text-label-md hover:bg-surface-container-high transition-all flex items-center justify-center gap-space-xs font-semibold">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+            Direct Connect Mandi Secretary Desk
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Early Warning & Autonomous Incident Feed -->
+<section class="w-full px-gutter-desktop pb-space-lg">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-2xl">neurology</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Autonomous Incident &amp; Early Warning Feed</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Real-time edge decisions: Rain alerts, moisture rejection alarms, and multi-lingual SMS broadcasts</span>
+</div>
+</div>
+<span class="hidden sm:inline-flex items-center gap-space-2xs px-space-sm py-space-2xs rounded-full bg-surface-container-low text-tertiary font-label-sm text-label-sm font-bold border border-surface-container">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+          Autonomous Policy: Reroute at 88% Yard Fullness
+        </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Incident 1: Convoy Diversion -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all border border-error/20">
+<div>
+<div class="flex items-center justify-between gap-space-xs mb-space-xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-xs">alt_route</span>
+                ACTIVE CONVOY REROUTE
+              </span>
+<span class="font-label-sm text-label-sm text-outline font-medium">Just Now</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs font-bold">Jalandhar Saturation &gt; Kapurthala Sub-Yard</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Jalandhar reached 92% capacity. The AI balancing engine diverted <strong class="text-on-surface font-semibold">24 tractor trailers (approx. 3,400 Qtl)</strong> to Kapurthala Sub-Yard. Automatic route SMS dispatched to 24 registered phone numbers in Punjabi and Hindi.
+            </p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between border border-surface-container">
+<div class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-primary text-sm">sms</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">SMS Sent: 24/24 Delivered</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">Saved: 1h 45m</span>
+</div>
+</div>
+<!-- Incident 2: Weather & Buffer Bays -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all border border-amber-500/20">
+<div>
+<div class="flex items-center justify-between gap-space-xs mb-space-xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-amber-100 text-amber-900 font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-xs">thunderstorm</span>
+                RAIN ALERT &amp; SHED REALLOCATION
+              </span>
+<span class="font-label-sm text-label-sm text-outline font-medium">14m ago</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs font-bold">Unseasonal Rain Forecast: Amritsar Belt</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              IMD Doppler radar indicates 40% chance of showers tomorrow afternoon. System autonomously issued directives to <strong class="text-on-surface font-semibold">reallocate 3 covered buffer sheds (15,000 Qtl)</strong> and advance testing of exposed bagged grains.
+            </p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between border border-surface-container">
+<div class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-amber-700 text-sm">roofing</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Covered Shed Capacity: +15,000 Qtl</span>
+</div>
+<button class="font-label-sm text-label-sm text-tertiary font-bold hover:underline">View Sheds</button>
+</div>
+</div>
+<!-- Incident 3: Moisture Threshold Alarms -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all border border-primary/20">
+<div>
+<div class="flex items-center justify-between gap-space-xs mb-space-xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-xs">water_drop</span>
+                MOISTURE THRESHOLD ADVISORY
+              </span>
+<span class="font-label-sm text-label-sm text-outline font-medium">28m ago</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs font-bold">Moisture Anomaly Check: Ferozepur Bay</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Automated sensors detected 12.8% moisture on 2 consignments (threshold 12.0%). AI triggered instant dryer bed pre-booking and dispatched a Hindi/Punjabi SMS guidance to the farmers to avoid spot rejection penalties.
+            </p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center justify-between border border-surface-container">
+<div class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Dryer Bed Pre-booked: Bay 4</span>
+</div>
+<button class="font-label-sm text-label-sm text-tertiary font-bold hover:underline">Review Gate 3</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Cross-Centre Performance Analytics & Visual Data Table -->
+<section class="w-full px-gutter-desktop pb-space-2xl">
+<div class="max-w-[1440px] mx-auto bg-surface-container-lowest rounded-xl p-space-md shadow-sm border border-surface-container">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-space-sm mb-space-md">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Regional Procurement Centres: Real-time Telemetry Ledger</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Continuous cross-cluster performance ranking, DBT settlement status, and autonomous gate dispatch accuracy</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="pl-8 pr-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:bg-surface-container border border-surface-container" placeholder="Search Mandi or ID..." type="text"/>
+</div>
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-space-2xs font-semibold">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+            Sort: Wait Time
+          </button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-xs px-space-md">Procurement Hub &amp; ID</th>
+<th class="py-space-xs px-space-md text-right">Total Procured</th>
+<th class="py-space-xs px-space-md text-right">Avg Queue Wait</th>
+<th class="py-space-xs px-space-md">Capacity Utilization</th>
+<th class="py-space-xs px-space-md text-right">DBT Disbursed</th>
+<th class="py-space-xs px-space-md">Gateway Link</th>
+<th class="py-space-xs px-space-md text-center">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1: Barnala Central -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Barnala Central Yard</span>
+<span class="font-body-sm text-body-sm text-outline text-[11px]">PB-BNL-01 • District Barnala</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md font-semibold text-on-surface tabular-nums">
+                15,360 Qtl
+              </td>
+<td class="py-space-sm px-space-md text-right">
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold tabular-nums">
+                  16 mins (Green)
+                </span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-24 h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary" style="width: 64%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface tabular-nums font-semibold">64%</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md font-semibold text-secondary tabular-nums">
+                ₹34.8 Cr
+              </td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Optical Fiber + SMS
+                </span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<button class="px-space-xs py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold" onclick="selectMandi('barnala')">
+                  Inspect
+                </button>
+</td>
+</tr>
+<!-- Row 2: Khanna Hub -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Khanna Mega Grain Hub</span>
+<span class="font-body-sm text-body-sm text-outline text-[11px]">PB-KHN-09 • District Ludhiana</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md font-semibold text-on-surface tabular-nums">
+                28,400 Qtl
+              </td>
+<td class="py-space-sm px-space-md text-right">
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold tabular-nums">
+                  21 mins (Green)
+                </span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-24 h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary" style="width: 78%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface tabular-nums font-semibold">78%</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md font-semibold text-secondary tabular-nums">
+                ₹64.2 Cr
+              </td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Optical Fiber + SMS
+                </span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<button class="px-space-xs py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold" onclick="selectMandi('khanna')">
+                  Inspect
+                </button>
+</td>
+</tr>
+<!-- Row 3: Jalandhar Yard (Rerouted - Red Alert) -->
+<tr class="hover:bg-surface-container-low transition-colors bg-error-container/10">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Jalandhar Grain Market</span>
+<span class="font-body-sm text-body-sm text-error font-semibold text-[11px]">PB-JAL-04 • Reroute In Effect</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md font-semibold text-on-surface tabular-nums">
+                19,100 Qtl
+              </td>
+<td class="py-space-sm px-space-md text-right">
+<span class="px-space-xs py-space-2xs rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold tabular-nums">
+                  48 mins (Red Alert)
+                </span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-24 h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-error" style="width: 92%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-error font-bold tabular-nums">92%</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md font-semibold text-secondary tabular-nums">
+                ₹43.1 Cr
+              </td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Primary Active
+                </span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<button class="px-space-xs py-1 rounded bg-error text-on-error font-label-sm text-label-sm font-bold shadow-sm hover:opacity-90" onclick="selectMandi('jalandhar')">
+                  Manage Reroute
+                </button>
+</td>
+</tr>
+<!-- Row 4: Kapurthala Sub-Yard (Relief Buffer) -->
+<tr class="hover:bg-surface-container-low transition-colors bg-secondary-container/10">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Kapurthala Sub-Yard</span>
+<span class="font-body-sm text-body-sm text-secondary font-semibold text-[11px]">PB-KAP-07 • Active Relief Bay</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md font-semibold text-on-surface tabular-nums">
+                11,250 Qtl
+              </td>
+<td class="py-space-sm px-space-md text-right">
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold tabular-nums">
+                  12 mins (Green)
+                </span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-24 h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary" style="width: 42%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface tabular-nums font-semibold">42%</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md font-semibold text-secondary tabular-nums">
+                ₹25.4 Cr
+              </td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Fiber + SMS Mesh
+                </span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<button class="px-space-xs py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold" onclick="selectMandi('kapurthala')">
+                  Inspect
+                </button>
+</td>
+</tr>
+<!-- Row 5: Moga Main -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Moga Main Mandi</span>
+<span class="font-body-sm text-body-sm text-outline text-[11px]">PB-MOG-02 • District Moga</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md font-semibold text-on-surface tabular-nums">
+                22,750 Qtl
+              </td>
+<td class="py-space-sm px-space-md text-right">
+<span class="px-space-xs py-space-2xs rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold tabular-nums">
+                  14 mins (Green)
+                </span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-24 h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary" style="width: 58%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface tabular-nums font-semibold">58%</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-label-md text-label-md font-semibold text-secondary tabular-nums">
+                ₹51.5 Cr
+              </td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Optical Fiber + SMS
+                </span>
+</td>
+<td class="py-space-sm px-space-md text-center">
+<button class="px-space-xs py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold" onclick="selectMandi('moga')">
+                  Inspect
+                </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Dynamic Hourly Inflow & Clearance Vector Graph -->
+<div class="mt-space-lg pt-space-md border-t border-surface-container flex flex-col xl:flex-row xl:items-center xl:justify-between gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Regional Inflow vs Clearance Velocity (Last 12 Hours)</span>
+<span class="font-body-sm text-body-sm text-outline">Statewide aggregate: Intake tractor volume (Green bars) vs Weighment Clearance rate (Teal line)</span>
+</div>
+<!-- Inline Visual Sparkline / Bar Chart -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-2xs">
+<span class="w-3 h-3 bg-primary rounded-sm"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Intake Load (Qtl)</span>
+</div>
+<div class="flex items-center gap-space-2xs">
+<span class="w-3 h-3 bg-secondary-fixed-dim rounded-sm"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Current Active Load</span>
+</div>
+<div class="flex items-center gap-space-2xs">
+<span class="w-3 h-3 bg-outline/40 rounded-sm"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">AI Forecast</span>
+</div>
+</div>
+</div>
+<!-- Mini Inflow Canvas Simulation -->
+<div class="w-full h-32 mt-space-sm flex items-end gap-2 px-space-xs pt-space-xs bg-surface-container-low rounded-lg border border-surface-container">
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full bg-primary/80 rounded-t" style="height: 38%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">06:00</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full bg-primary/80 rounded-t" style="height: 52%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">07:00</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full bg-primary/80 rounded-t" style="height: 68%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">08:00</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full bg-primary/80 rounded-t" style="height: 84%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">09:00</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full bg-primary rounded-t" style="height: 96%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">10:00</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full bg-primary/90 rounded-t" style="height: 90%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">11:00</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full bg-primary/85 rounded-t" style="height: 78%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">12:00</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full bg-primary/75 rounded-t" style="height: 62%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">13:00</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full bg-primary/80 rounded-t" style="height: 74%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">14:00</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end">
+<div class="w-full bg-secondary-fixed-dim rounded-t" style="height: 82%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold text-[10px]">15:00 Now</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end opacity-50">
+<div class="w-full bg-outline rounded-t border-dashed" style="height: 70%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">16:00 (AI)</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1 h-full justify-end opacity-35">
+<div class="w-full bg-outline rounded-t border-dashed" style="height: 48%;"></div>
+<span class="font-label-sm text-label-sm text-outline text-[10px]">17:00 (AI)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Inspector State Management Script -->
+<script>
+    const mandiData = {
+      jalandhar: {
+        title: 'Jalandhar Grain Market',
+        id: 'HUB #PB-04',
+        region: 'District: Jalandhar • Operating Capacity: 92%',
+        pct: '92% (Saturation Alert)',
+        barWidth: '92%',
+        barClass: 'bg-error',
+        badgeText: 'Red Alert (>45m)',
+        badgeClass: 'bg-error-container text-on-error-container',
+        queue: '44 Trucks',
+        counters: '8 / 8 Active',
+        inflow: '1,820 Qtl/hr',
+        moisture: '1.8%',
+        action: 'Statewide load balancing triggered: 24 arriving tractor convoys redirected to Kapurthala Sub-Yard (8.2 km). Token validity and queue seniority preserved with fast-track digital pass.'
+      },
+      kapurthala: {
+        title: 'Kapurthala Sub-Yard',
+        id: 'HUB #PB-07',
+        region: 'District: Kapurthala • Operating Capacity: 42%',
+        pct: '42% (Buffer Relief Bay)',
+        barWidth: '42%',
+        barClass: 'bg-secondary',
+        badgeText: 'Green (<20m)',
+        badgeClass: 'bg-secondary-container text-on-secondary-container',
+        queue: '6 Trucks (+24 Diverted)',
+        counters: '6 / 6 Active',
+        inflow: '860 Qtl/hr',
+        moisture: '1.2%',
+        action: 'Active overflow receiver. Inbound lane 2 reserved exclusively for diverted Jalandhar convoys with automated weight sensor sync.'
+      },
+      barnala: {
+        title: 'Barnala Central Yard',
+        id: 'HUB #PB-01',
+        region: 'District: Barnala • Operating Capacity: 64%',
+        pct: '64% (Optimal)',
+        barWidth: '64%',
+        barClass: 'bg-secondary',
+        badgeText: 'Green (<20m)',
+        badgeClass: 'bg-secondary-container text-on-secondary-container',
+        queue: '12 Trucks',
+        counters: '6 / 6 Active',
+        inflow: '1,240 Qtl/hr',
+        moisture: '0.9%',
+        action: 'Weighbridge intake operating in optimum buffer zone. Token wait time is 16 minutes with zero congestion spillover.'
+      },
+      moga: {
+        title: 'Moga Main Mandi',
+        id: 'HUB #PB-02',
+        region: 'District: Moga • Operating Capacity: 58%',
+        pct: '58% (Optimal)',
+        barWidth: '58%',
+        barClass: 'bg-secondary',
+        badgeText: 'Green (<20m)',
+        badgeClass: 'bg-secondary-container text-on-secondary-container',
+        queue: '9 Trucks',
+        counters: '5 / 6 Active',
+        inflow: '1,100 Qtl/hr',
+        moisture: '1.1%',
+        action: 'AI engine recommends accepting overflow tokens from Ferozepur border corridors if needed. Ample covered shed space available.'
+      },
+      khanna: {
+        title: 'Khanna Mega Grain Hub',
+        id: 'HUB #PB-09',
+        region: 'District: Ludhiana • Operating Capacity: 78%',
+        pct: '78% (Steady)',
+        barWidth: '78%',
+        barClass: 'bg-secondary',
+        badgeText: 'Green (<20m)',
+        badgeClass: 'bg-secondary-container text-on-secondary-container',
+        queue: '28 Trucks',
+        counters: '12 / 12 Active',
+        inflow: '2,900 Qtl/hr',
+        moisture: '1.4%',
+        action: 'All 12 automated weighbridges functioning at maximum throughput. Turnaround clock stands at 21 minutes per convoy.'
+      },
+      ludhiana: {
+        title: 'Ludhiana Mandi 1',
+        id: 'HUB #PB-07',
+        region: 'District: Ludhiana • Operating Capacity: 83%',
+        pct: '83% (Elevated)',
+        barWidth: '83%',
+        barClass: 'bg-amber-500',
+        badgeText: 'Amber (20-45m)',
+        badgeClass: 'bg-amber-100 text-amber-800',
+        queue: '31 Trucks',
+        counters: '7 / 8 Active',
+        inflow: '1,750 Qtl/hr',
+        moisture: '1.5%',
+        action: 'AI slot optimizer throttling outbound dispatch slots by 15% for next hour to prevent yard accumulation.'
+      },
+      patiala: {
+        title: 'Patiala Mandi Hub',
+        id: 'HUB #PB-12',
+        region: 'District: Patiala • Operating Capacity: 79%',
+        pct: '79% (Elevated)',
+        barWidth: '79%',
+        barClass: 'bg-amber-500',
+        badgeText: 'Amber (20-45m)',
+        badgeClass: 'bg-amber-100 text-amber-800',
+        queue: '25 Trucks',
+        counters: '6 / 6 Active',
+        inflow: '1,420 Qtl/hr',
+        moisture: '1.2%',
+        action: 'Dispatch pace steady. Direct SMS advisory sent to Samana farmers to space yard arrivals by 25 mins.'
+      }
+    };
+
+    function selectMandi(key) {
+      const data = mandiData[key];
+      if (!data) return;
+
+      document.getElementById('inspector-title').innerText = data.title;
+      document.getElementById('inspector-id').innerText = data.id;
+      document.getElementById('inspector-region').innerText = data.region;
+      document.getElementById('inspector-pct').innerText = data.pct;
+      document.getElementById('inspector-queue').innerText = data.queue;
+      document.getElementById('inspector-counters').innerText = data.counters;
+      document.getElementById('inspector-inflow').innerText = data.inflow;
+      document.getElementById('inspector-moisture').innerText = data.moisture;
+      document.getElementById('inspector-action').innerText = data.action;
+
+      const badge = document.getElementById('inspector-badge');
+      badge.innerText = data.badgeText;
+      badge.className = 'px-space-xs py-space-2xs rounded-full font-label-sm text-label-sm font-bold ' + data.badgeClass;
+
+      const bar = document.getElementById('inspector-bar');
+      bar.style.width = data.barWidth;
+      bar.className = 'h-full transition-all duration-500 ' + data.barClass;
+    }
+
+    // Dynamic countdown for 15s refresh
+    let secondsLeft = 15;
+    setInterval(() => {
+      secondsLeft = secondsLeft <= 1 ? 15 : secondsLeft - 1;
+      const el = document.getElementById('telemetry-timer');
+      if (el) el.innerText = 'Auto-sync: ' + secondsLeft + 's left';
+    }, 1000);
+  </script>
+</div></main></div></body></html>

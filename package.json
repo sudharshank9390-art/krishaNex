@@ -1,0 +1,20 @@
+{
+  "name": "krishnex",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KrishNex agricultural procurement platform monorepo",
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c green,cyan \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix krishnex/frontend run dev",
+    "build:backend": "npm --prefix backend run build",
+    "build:frontend": "npm --prefix krishnex/frontend run build",
+    "db:generate": "npm --prefix backend run prisma:generate",
+    "db:migrate": "npm --prefix backend run prisma:migrate",
+    "db:seed": "npm --prefix backend run prisma:seed"
+    ,"test:smoke": "npm --prefix backend run test:smoke"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
