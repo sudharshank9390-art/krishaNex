@@ -87,7 +87,8 @@ app.use((error: unknown, _req: express.Request, res: express.Response, _next: ex
   }
   if (error instanceof Prisma.PrismaClientKnownRequestError) {
     const status = error.code === 'P2025' ? 404 : error.code === 'P2002' ? 409 : 400;
-    res.status(status).json({ success: false, error: error.code === 'P2025' ? 'Record not found' : error.code === 'P2002' ? 'A record with these details already exists' : 'Database request failed' });
+    const msg = error.code === 'P2025' ? 'Record not found' : error.code === 'P2002' ? 'A record with these details already exists' : `Database request failed (${error.code})`;
+    res.status(status).json({ success: false, error: msg });
     return;
   }
   if (error instanceof Error && error.message === 'Origin is not allowed by CORS') {
