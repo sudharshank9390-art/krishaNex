@@ -21,7 +21,10 @@ export const TokenVerificationPage: React.FC = () => {
     try {
       const token: MandiToken = await mandiApi.verifyToken(tokenInput.trim());
       setFoundToken({ id: token.id, tokenNumber: token.tokenNumber, farmerName: token.booking.farmer.name, agriStackId: 'Verified farmer record', vehicleNo: token.booking.vehicleNo, quota: token.booking.quantityQuintals, cropKey: token.booking.crop.key, cropName: token.booking.crop.name, mspRate: token.booking.crop.msp, bonusRate: token.booking.crop.bonus, mandiId: token.booking.mandi.id, mandiName: token.booking.mandi.name, slotDate: new Date(token.booking.arrivalDate).toLocaleDateString('en-IN'), slotTime: token.booking.slotTime, status: token.status, gateCleared: token.status !== 'BOOKED', createdAt: token.booking.arrivalDate });
-    } catch { setFoundToken(null); setError('Token not found or unavailable for verification.'); } finally { setIsLoading(false); }
+    } catch (err: unknown) {
+      setFoundToken(null);
+      setError(err instanceof Error ? err.message : 'Token not found or unavailable for verification.');
+    } finally { setIsLoading(false); }
   };
 
   const handleProceed = () => {
