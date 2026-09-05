@@ -1,4 +1,5 @@
-const baseUrl = process.env.API_URL || 'http://localhost:3000';
+const baseUrl =
+  import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 const response = await fetch(`${baseUrl}/api/health`);
 if (!response.ok) throw new Error(`Health check failed with HTTP ${response.status}`);
