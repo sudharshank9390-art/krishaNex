@@ -95,7 +95,8 @@ app.use((error: unknown, _req: express.Request, res: express.Response, _next: ex
     res.status(403).json({ success: false, error: 'Origin is not allowed' });
     return;
   }
-  res.status(500).json({ success: false, error: 'Internal server error' });
+  const message = error instanceof Error ? error.message : 'Internal server error';
+  res.status(500).json({ success: false, error: message });
 });
 
 import { ensureDatabaseReady } from './lib/db-init.js';
