@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 import { prisma } from '../src/lib/prisma.js';
 
-async function main() {
+export async function runSeed() {
   const demoPasswordHash = await bcrypt.hash(process.env.DEMO_PASSWORD || 'KrishNex2026!', 12);
   const demoUsers = [
     { name: 'Ramesh Kumar', email: 'farmer@krishnex.app', role: 'FARMER' },
@@ -42,6 +42,7 @@ async function main() {
   console.log(`Seeded crop: ${wheat.name}`);
 }
 
-main()
-  .catch((error) => { console.error(error); process.exitCode = 1; })
-  .finally(async () => { await prisma.$disconnect(); });
+if (process.argv[1]?.includes('seed')) {
+  runSeed()
+    .catch((error) => { console.error(error); process.exitCode = 1; });
+}

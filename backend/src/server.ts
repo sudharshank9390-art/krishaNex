@@ -98,7 +98,16 @@ app.use((error: unknown, _req: express.Request, res: express.Response, _next: ex
   res.status(500).json({ success: false, error: 'Internal server error' });
 });
 
-server.listen(env.PORT, () => {
-  console.log(`KrishNex API running at http://localhost:${env.PORT}`);
-  console.log(`Health check: http://localhost:${env.PORT}/api/health`);
+import { ensureDatabaseReady } from './lib/db-init.js';
+
+ensureDatabaseReady().then(() => {
+  server.listen(env.PORT, () => {
+    console.log(`KrishNex API running at http://localhost:${env.PORT}`);
+    console.log(`Health check: http://localhost:${env.PORT}/api/health`);
+  });
+}).catch((err) => {
+  console.error('[SERVER STARTUP ERROR]', err);
+  server.listen(env.PORT, () => {
+    console.log(`KrishNex API running at http://localhost:${env.PORT}`);
+  });
 });
