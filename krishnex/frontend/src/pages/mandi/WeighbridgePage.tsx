@@ -33,8 +33,9 @@ export const WeighbridgePage: React.FC = () => {
       await mandiApi.recordWeighment(tokenNum, grossWeightKg, tareWeightKg);
       setIsSuccess(true);
       setTimeout(() => navigate(`/mandi/quality?token=${encodeURIComponent(tokenNum)}`), 700);
-    } catch {
-      setError('Unable to record weighment. Verify the token and try again.');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Unable to record weighment. Verify the token and try again.';
+      setError(msg);
     }
   };
 

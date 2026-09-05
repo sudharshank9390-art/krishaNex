@@ -24,8 +24,9 @@ export const QualityTestingPage: React.FC = () => {
     try {
       await mandiApi.recordQuality(tokenId, moisture, approved ? grade : 'REJECTED');
       navigate(`/mandi/procurement?token=${encodeURIComponent(tokenId)}`);
-    } catch {
-      setError('Unable to save the quality result. Verify the weighment is complete.');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Unable to save the quality result. Verify the weighment is complete.';
+      setError(msg);
     }
   };
 
