@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm --prefix krishnex/frontend install && npm --prefix krishnex/frontend run build",
+  "outputDirectory": "krishnex/frontend/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
