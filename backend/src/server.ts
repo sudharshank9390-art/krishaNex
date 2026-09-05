@@ -17,18 +17,45 @@ import { Prisma } from '@prisma/client';
 
 const app = express();
 const server = http.createServer(app);
+
+const configuredOrigins = (env.CLIENT_ORIGIN || '')
+  .split(',')
+  .map((o) => o.trim().replace(/\/$/, ''))
+  .filter(Boolean);
+
+const defaultOrigins = ['http://localhost:5173', 'http://127.0.0.1:5173'];
+const allowedOriginsList = Array.from(new Set([...configuredOrigins, ...defaultOrigins]));
+
+const isOriginAllowed = (origin: string | undefined): boolean => {
+  if (!origin) return true;
+  const cleanOrigin = origin.replace(/\/$/, '');
+  if (allowedOriginsList.includes(cleanOrigin)) return true;
+  if (/^https:\/\/.*\.vercel\.app$/.test(cleanOrigin)) return true;
+  return false;
+};
+
 const io = new Server(server, {
-  cors: { origin: [env.CLIENT_ORIGIN, 'http://localhost:5173', 'http://127.0.0.1:5173'], methods: ['GET', 'POST', 'PATCH', 'DELETE'] },
+  cors: {
+    origin: (origin, callback) => {
+      if (isOriginAllowed(origin)) callback(null, true);
+      else callback(new Error('Origin is not allowed by CORS'));
+    },
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+    credentials: true,
+  },
 });
 app.set('io', io);
 
-const allowedOrigins = new Set([env.CLIENT_ORIGIN, 'http://localhost:5173', 'http://127.0.0.1:5173']);
-
 app.use(helmet());
-app.use(cors({ origin: (origin, callback) => {
-  if (!origin || allowedOrigins.has(origin)) callback(null, true);
-  else callback(new Error('Origin is not allowed by CORS'));
-} }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (isOriginAllowed(origin)) callback(null, true);
+      else callback(new Error('Origin is not allowed by CORS'));
+    },
+    credentials: true,
+  })
+);
 app.use(express.json({ limit: '1mb' }));
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 300 }));
 
